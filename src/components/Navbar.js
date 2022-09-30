@@ -5,13 +5,13 @@ function Navbar() {
     <nav className="Navbar">
       <ul>
         
-        <NavLink to="/" className={({ isActive }) => isActive ? "selected" : "default"}>
+        <NavLink to="/" className={({ isActive }) => isActive ? "selected" : "unselected"}>
           Home
         </NavLink>
         
         <NavLink 
           to="/about" 
-          className={({ isActive }) => isActive ? "selected" : "default"}
+          className={({ isActive }) => isActive ? "selected" : "unselected"}
          >
           About
         </NavLink>
