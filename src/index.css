@@ -33,3 +33,7 @@ code {
   flex-direction: column;
   width: 300px;
 }
+
+.default, .selected {
+  color: black;
+}

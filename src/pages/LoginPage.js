@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
+
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -25,6 +27,8 @@ function Login() {
         
         <form className="AuthForm" onSubmit={handleLoginSubmit}>
             <h1>Login</h1>
+            <p>Don't have an account yet?</p>
+            <Link to={"/signup"}> Sign Up</Link>
             <label>Email</label>
             <input
             type="email"
@@ -41,7 +45,11 @@ function Login() {
             onChange={handlePassword}
             />
             <button type="submit">Enter</button>
+            
         </form>
+
+        
+
       </div>
     );
   }
