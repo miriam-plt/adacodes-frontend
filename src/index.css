@@ -22,3 +22,18 @@ code {
 .isActive {
   color: black;
 }
+
+.AuthContent {
+  display: flex;
+  justify-content: center;
+}
+
+.AuthForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.default, .selected {
+  color: black;
+}
