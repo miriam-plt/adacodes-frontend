@@ -64,7 +64,7 @@ function Signup() {
             value={password}
             onChange={handlePassword}
             />
-            <button type="submit">Enter</button>
+            <button type="submit">Create account</button>
             
         </form>
 
