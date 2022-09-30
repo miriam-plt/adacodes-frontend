@@ -1,6 +1,9 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddService(props) {
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
     const [street, setStreet] = useState("");
@@ -30,6 +33,23 @@ function AddService(props) {
 
         const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, picture };
         console.log(requestBody);
+        const storedToken = localStorage.getItem('authToken');
+        axios.post(`${process.env.REACT_APP_API_URL}/api/services`, requestBody, {headers: {Authorization: `Bearer ${storedToken}`}})
+             .then((response) => {
+                setName('');
+                setCategory('');
+                setStreet('');
+                setStreetNr(0);
+                setComplement('');
+                setZip(0);
+                setWebsite('');
+                setEmail('');
+                setPhone('');
+                setDescription('');
+                setPicture('');
+                navigate('/');
+             })
+                .catch((error) => console.log(error));
     }
   
     return (
@@ -38,27 +58,27 @@ function AddService(props) {
 
             <form onSubmit={handleSubmit}>
                 <label>Name:</label>
-                <input type="text" name="name" value={name} onChange={handleName}/>
+                <input type="text" name="name" onChange={(e) => handleName(e)}/>
                 <label>Category:</label>
-                <input type="text" name="category" value={category} onChange={handleCategory}/>
+                <input type="text" name="category"  onChange={(e) => handleCategory(e)}/>
                 <label>Street:</label>
-                <input type="text" name="street" value={street} onChange={handleStreet}/>
+                <input type="text" name="street"  onChange={(e) => handleStreet(e)}/>
                 <label>Street Nr:</label>
-                <input type="number" name="streetNr" value={streetNr} onChange={handleStreetNr}/>
+                <input type="number" name="streetNr"  onChange={(e) => handleStreetNr(e)}/>
                 <label>Address complement:</label>
-                <input type="text" name="complement" value={complement} onChange={handleComplement}/>
+                <input type="text" name="complement"  onChange={(e) => handleComplement(e)}/>
                 <label>Zip:</label>
-                <input type="number" name="zip" value={zip} onChange={handleZip}/>
+                <input type="number" name="zip" onChange={(e) => handleZip(e)}/>
                 <label>Website:</label>
-                <input type="text" name="website" value={website} onChange={handleWebsite}/>
+                <input type="text" name="website"  onChange={(e) => handleWebsite(e)}/>
                 <label>E-mail address:</label>
-                <input type="text" name="email" value={email} onChange={handleEmail}/>
+                <input type="text" name="email"  onChange={(e) => handleEmail(e)}/>
                 <label>Phone:</label>
-                <input type="number" name="phone" value={phone} onChange={handlePhone}/>
+                <input type="number" name="phone"  onChange={(e) => handlePhone(e)}/>
                 <label>Description:</label>
-                <input type="text" name="description" value={description} onChange={handleDescription}/>
+                <input type="text" name="description"  onChange={(e) => handleDescription(e)}/>
                 <label>Picture:</label>
-                <input type="text" name="picture" value={picture} onChange={handlePicture}/>
+                <input type="text" name="picture"  onChange={(e) => handlePicture(e)}/>
                 <button type="submit">Submit</button>
             </form>
 
