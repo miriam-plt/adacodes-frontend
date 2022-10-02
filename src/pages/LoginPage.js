@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL 
+//const API_URL = process.env.REACT_APP_API_URL 
 
 
 function Login() {
@@ -19,7 +19,7 @@ function Login() {
 
     const handleEmail = (e) => setEmail(e.target.value);
     const handlePassword = (e) => setPassword(e.target.value);
-    const API_URL = process.env.REACT_APP_API_URL 
+   // const API_URL = process.env.REACT_APP_API_URL 
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
@@ -30,8 +30,8 @@ function Login() {
         .then((response) => {
         // Request to the server's endpoint `/auth/login` returns a response
         // with the JWT string ->  response.data.authToken
-          storeToken(response.data.authToken);
-          authenticateUser();
+        //  storeToken(response.data.authToken);
+        //  authenticateUser();
           navigate('/');                     
     })
   .catch((error) => {

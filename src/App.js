@@ -8,23 +8,25 @@ import ErrorPage from './pages/ErrorPage';
 import AddService from './pages/AddServicePage';
 import EditService from './pages/EditServicePage';
 import ServiceDetails from './pages/ServiceDetailsPage';
+import AboutPage from './pages/AboutPage';
+import ThankYouPage from './pages/ThankYouPage';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-
+    
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/service/add" element={<AddService />} />
-        <Route path="/service/edit" element={<EditService />} />
-        <Route path="/service/detail" element={<ServiceDetails />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path={"/"} element={<HomePage />} />
+        <Route path={"/login"} element={<LoginPage />} />
+        <Route path={"/signup"} element={<SignupPage />} />
+        <Route path={"/service/add"} element={<AddService />} />
+        <Route path={"/service/edit/:serviceId"} element={<EditService />} />
+        <Route path={"/service/detail/:serviceId"} element={<ServiceDetails />} />
+        <Route path={"/about"} element={<AboutPage />} />
+        <Route path={"/thankyou"} element={<ThankYouPage />} />
+        <Route path={"*"} element={<ErrorPage />} />
       </Routes>
-      
-
       
     </div>
   );
