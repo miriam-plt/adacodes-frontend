@@ -11,9 +11,20 @@ function Navbar() {
         
         <NavLink 
           to="/about" 
-          className={({ isActive }) => isActive ? "selected" : "unselected"}
-         >
+          className={({ isActive }) => isActive ? "selected" : "unselected"}>
           About
+        </NavLink>
+
+        <NavLink 
+          to="/login" 
+          className={({ isActive }) => isActive ? "selected" : "unselected"}>
+          Login
+        </NavLink>
+
+        <NavLink 
+          to="/signup" 
+          className={({ isActive }) => isActive ? "selected" : "unselected"}>
+          Join the community
         </NavLink>
         
       </ul>
