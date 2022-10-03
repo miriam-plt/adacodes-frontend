@@ -26,12 +26,14 @@ function Navbar() {
           </>
         )}
 
+
         {isLoggedIn && (
           <>
             <button onClick={logOutUser}>Logout</button>
             <span>{user && user.username}</span>
           </>
         )}
+
       </ul>
       
     </nav>
