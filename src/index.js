@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProviderWrapper } from "./context/auth.context"; 
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

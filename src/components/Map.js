@@ -1,24 +1,28 @@
-import React, { useState } from "react";
-import ReactMapGL from "react-map-gl"
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import React, { useRef, useEffect, useState } from "react";
+mapboxgl.accessToken = "pk.eyJ1Ijoia3lvdG9zbmciLCJhIjoiY2l2b2ZzajQxMDBzbTJvbXVxanQzZWFhNSJ9.SvyFm-_4BuWzYGL7OaQkcQ"
 
 function Map() {
-    const [viewport, setViewport] = useState({
-        latitude: 52.5170365,
-        longitude: 13.3888599,
-        width: "100vw",
-        height: "100vh",
-        zoom: 10,
+    const mapContainer = useRef(null);
+    const map = useRef(null);
+    const [lng, setLng] = useState(13.3888599);
+    const [lat, setLat] = useState(52.5170365);
+    const [zoom, setZoom] = useState(10);
+
+  useEffect(() => {
+    if (map.current) return;
+    map.current = new mapboxgl.Map({
+    container: mapContainer.current,
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [lng, lat],
+    zoom: zoom
     });
+});
 
     return (
         <div>
-            <ReactMapGL {...viewport} mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}>
-                markers here
-            </ReactMapGL>
-
+            <div ref={mapContainer} className="map-container" />
         </div>
-
     )
 }
-
 export default Map;
