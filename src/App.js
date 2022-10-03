@@ -23,8 +23,8 @@ function App() {
         <Route path={"/signup"} element={<SignupPage />} />
         <Route path={"/service/add"} element={<AddService />} />
         <Route path={"/service/edit/:serviceId"} element={<EditService />} />
-        <Route path={"/service/detail/:serviceId"} element={<ServiceDetails />} />
         <Route path={"/service/list"} element={<ServiceListPage />} />
+        <Route path={"/service/:serviceId"} element={<ServiceDetails />} />
         <Route path={"/about"} element={<AboutPage />} />
         <Route path={"/thankyou"} element={<ThankYouPage />} />
         <Route path={"*"} element={<ErrorPage />} />

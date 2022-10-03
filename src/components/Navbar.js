@@ -26,6 +26,12 @@ function Navbar() {
           className={({ isActive }) => isActive ? "selected" : "unselected"}>
           Join the community
         </NavLink>
+
+        <NavLink 
+          to="/service/list" 
+          className={({ isActive }) => isActive ? "selected" : "unselected"}>
+          Services
+        </NavLink>
         
       </ul>
       

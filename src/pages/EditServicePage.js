@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditService() {
-  const navigate = useNavigate();
-  const { serviceId } = useParams();
-
+function EditService(props) {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [street, setStreet] = useState("");
@@ -20,19 +17,23 @@ function EditService() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
+  const navigate = useNavigate();
+  const { serviceId } = useParams();
+  console.log(serviceId)
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, picture, date, time };
 
-    axios.put(`${process.env.REAT_APP_API_URL}/api/services/${serviceId}`, requestBody)
+    axios.put(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, requestBody)
          .then((response) => {
           navigate(`/service/${serviceId}`)
          });
   }
 
   const deleteProject = () => {
-    axios.delete(`${process.env.REAT_APP_API_URL}/api/services/${serviceId}`)
+    axios.delete(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`)
          .then(() => {
           navigate('/')
          })
@@ -40,7 +41,7 @@ function EditService() {
   };
 
   useEffect(()=>{
-    axios.get(`${process.env.REAT_APP_API_URL}/api/services/${serviceId}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`)
          .then((response) => {
           const oneService = response.data;
           setName(oneService.name);
@@ -56,10 +57,9 @@ function EditService() {
           setPicture(oneService.picture);
           setDate(oneService.date);
           setTime(oneService.time);
-          navigate('/');
          })
          .catch((error) => console.log(error));
-  })
+  }, [])
 
 
     return (
