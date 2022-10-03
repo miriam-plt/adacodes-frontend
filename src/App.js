@@ -12,6 +12,9 @@ import ServiceListPage from './pages/ServiceListPage';
 import AboutPage from './pages/AboutPage';
 import ThankYouPage from './pages/ThankYouPage';
 
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
+
 function App() {
   return (
     <div className="App">
@@ -19,9 +22,9 @@ function App() {
     
       <Routes>
         <Route path={"/"} element={<HomePage />} />
-        <Route path={"/login"} element={<LoginPage />} />
-        <Route path={"/signup"} element={<SignupPage />} />
-        <Route path={"/service/add"} element={<AddService />} />
+        <Route path={"/login"} element={<IsAnon><LoginPage /></IsAnon>} />
+        <Route path={"/signup"} element={<IsAnon><SignupPage /></IsAnon>} />
+        <Route path={"/service/add"} element={<IsPrivate><AddService /></IsPrivate>} />
         <Route path={"/service/edit/:serviceId"} element={<EditService />} />
         <Route path={"/service/list"} element={<ServiceListPage />} />
         <Route path={"/service/:serviceId"} element={<ServiceDetails />} />
