@@ -30,6 +30,7 @@ function ServiceListPage() {
         if (selectQuery === "support"){ return services.category.includes("support") && services.isApproved === true}
         if (selectQuery === "jobs"){ return services.category.includes("jobs") && services.isApproved === true}
         if (selectQuery === "others"){ return services.category.includes("others") && services.isApproved === true}
+        if (selectQuery === "pending"){ return services.isApproved === false}
         else {return services.isApproved === true}
     })
    
@@ -48,6 +49,7 @@ function ServiceListPage() {
             <button className="support-btn" value="support" onClick={handleChange}>Support</button>
             <button className="jobs-btn" value="jobs" onClick={handleChange} >Jobs</button>
             <button className="others-btn" value="others" onClick={handleChange}>Others</button>
+            <button className="pending-btn" value="pending" onClick={handleChange}>Pending</button>
         </div>
 
 

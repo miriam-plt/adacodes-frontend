@@ -16,6 +16,7 @@ function EditService(props) {
   const [picture, setPicture] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [isApproved, setIsApproved] = useState(false);
 
   const navigate = useNavigate();
   const { serviceId } = useParams();
@@ -24,7 +25,7 @@ function EditService(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, picture, date, time };
+    const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, picture, date, time, isApproved };
 
     axios.put(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, requestBody)
          .then((response) => {
@@ -57,6 +58,7 @@ function EditService(props) {
           setPicture(oneService.picture);
           setDate(oneService.date);
           setTime(oneService.time);
+          setIsApproved(oneService.isApproved);
          })
          .catch((error) => console.log(error));
   }, [])
@@ -101,7 +103,7 @@ function EditService(props) {
                 <label>In case you're submitting an event please indicate the time:</label>
                 <input type="text" name="time" value={time} onChange={(e) => setTime(e.target.value)}/>
                 <label htmlFor="isApproved">Approve submission:</label>
-                <input type="checkbox" name="isApproved" value="true"></input>
+                <input type="checkbox" name="isApproved" value={isApproved} onChange={(e) => setIsApproved(!isApproved)} />
                 <button type="submit">Submit changes</button>
             </form>
             <p>All fields marked with an asterisk are mandatory.</p>
