@@ -3,7 +3,6 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 
-//const API_URL = process.env.REACT_APP_API_URL 
 
 function Login(props) {
     const [email, setEmail] = useState("");
@@ -16,17 +15,15 @@ function Login(props) {
 
     const handleEmail = (e) => setEmail(e.target.value);
     const handlePassword = (e) => setPassword(e.target.value);
-   // const API_URL = process.env.REACT_APP_API_URL 
+  
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const requestBody = { email, password };
         //console.log(`email is: ${email}, password is: ${password}`)
 
-        axios.post(`http://localhost:5006/auth/login`, requestBody)
+        axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, requestBody)
         .then((response) => {
-        // Request to the server's endpoint `/auth/login` returns a response
-        // with the JWT string ->  response.data.authToken
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);  
         

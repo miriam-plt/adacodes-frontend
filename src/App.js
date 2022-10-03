@@ -11,8 +11,8 @@ import ServiceDetails from './pages/ServiceDetailsPage';
 import AboutPage from './pages/AboutPage';
 import ThankYouPage from './pages/ThankYouPage';
 
-import IsPrivate from "./components/IsPrivate";  // <== IMPORT
-import IsAnon from "./components/IsAnon";  // <== IMPORT
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <Route path={"/signup"} element={<IsAnon><SignupPage /></IsAnon>} />
         <Route path={"/service/add"} element={<IsPrivate><AddService /></IsPrivate>} />
         <Route path={"/service/edit/:serviceId"} element={<EditService />} />
-        <Route path={"/service/detail/:serviceId"} element={<ServiceDetails />} />
+        <Route path={"/service/:serviceId"} element={<ServiceDetails />} />
         <Route path={"/about"} element={<AboutPage />} />
         <Route path={"/thankyou"} element={<ThankYouPage />} />
         <Route path={"*"} element={<ErrorPage />} />

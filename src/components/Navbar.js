@@ -1,5 +1,5 @@
-import { NavLink, Link } from "react-router-dom";   // <== IMPORT
-import { useContext } from "react";                     // <== IMPORT 
+import { NavLink, Link } from "react-router-dom";
+import { useContext } from "react";  
 import { AuthContext } from "../context/auth.context"; 
 
 function Navbar() {
@@ -26,12 +26,12 @@ function Navbar() {
           </>
         )}
 
-        {isLoggedIn &&
+        {isLoggedIn && (
           <>
             <button onClick={logOutUser}>Logout</button>
             <span>{user && user.username}</span>
           </>
-        }
+        )}
       </ul>
       
     </nav>
