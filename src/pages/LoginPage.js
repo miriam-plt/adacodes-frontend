@@ -12,7 +12,7 @@ function Login(props) {
 
     const navigate = useNavigate();
 
-    const { storeToken } = useContext(AuthContext);
+    const { storeToken, authenticateUser } = useContext(AuthContext);
 
     const handleEmail = (e) => setEmail(e.target.value);
     const handlePassword = (e) => setPassword(e.target.value);
@@ -21,7 +21,7 @@ function Login(props) {
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const requestBody = { email, password };
-        console.log(`email is: ${email}, password is: ${password}`)
+        //console.log(`email is: ${email}, password is: ${password}`)
 
         axios.post(`http://localhost:5006/auth/login`, requestBody)
         .then((response) => {
@@ -29,7 +29,8 @@ function Login(props) {
         // with the JWT string ->  response.data.authToken
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);  
-
+        
+        authenticateUser(); 
         navigate('/');                     
     })
   .catch((error) => {

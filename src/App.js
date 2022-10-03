@@ -11,6 +11,9 @@ import ServiceDetails from './pages/ServiceDetailsPage';
 import AboutPage from './pages/AboutPage';
 import ThankYouPage from './pages/ThankYouPage';
 
+import IsPrivate from "./components/IsPrivate";  // <== IMPORT
+import IsAnon from "./components/IsAnon";  // <== IMPORT
+
 function App() {
   return (
     <div className="App">
@@ -18,9 +21,9 @@ function App() {
     
       <Routes>
         <Route path={"/"} element={<HomePage />} />
-        <Route path={"/login"} element={<LoginPage />} />
-        <Route path={"/signup"} element={<SignupPage />} />
-        <Route path={"/service/add"} element={<AddService />} />
+        <Route path={"/login"} element={<IsAnon><LoginPage /></IsAnon>} />
+        <Route path={"/signup"} element={<IsAnon><SignupPage /></IsAnon>} />
+        <Route path={"/service/add"} element={<IsPrivate><AddService /></IsPrivate>} />
         <Route path={"/service/edit/:serviceId"} element={<EditService />} />
         <Route path={"/service/detail/:serviceId"} element={<ServiceDetails />} />
         <Route path={"/about"} element={<AboutPage />} />
