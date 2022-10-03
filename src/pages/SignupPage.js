@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+//const API_URL = "http://localhost:5006";
 
-function Signup() {
+
+function Signup(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-    const [errorMessage, setErrorMessage] = useState(undefined);
+    const [errorMessage, setErrorMessage] = useState("undefined");
 
     const navigate = useNavigate();
 
@@ -15,7 +17,7 @@ function Signup() {
     const handlePassword = (e) => setPassword(e.target.value);
     const handleUsername = (e) => setUsername(e.target.value);
 
-    const API_URL = process.env.REACT_APP_API_URL 
+    //const API_URL = process.env.REACT_APP_API_URL 
 
     const handleLoginSubmit = (e) => {
         e.preventDefault();

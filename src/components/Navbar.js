@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";   // <== IMPORT
- 
+import { useContext } from "react";                     // <== IMPORT 
+import { AuthContext } from "../context/auth.context"; 
+
 function Navbar() {
+  const { isLoggedIn, user } = useContext(AuthContext);
+
   return (
     <nav className="Navbar">
       <ul>
@@ -15,18 +19,31 @@ function Navbar() {
           About
         </NavLink>
 
-        <NavLink 
-          to="/login" 
-          className={({ isActive }) => isActive ? "selected" : "unselected"}>
-          Login
-        </NavLink>
+        {!isLoggedIn && (
+          <>
+            <NavLink 
+              to="/login" 
+               className={({ isActive }) => isActive ? "selected" : "unselected"}>
+               Login
+            </NavLink>
 
-        <NavLink 
-          to="/signup" 
-          className={({ isActive }) => isActive ? "selected" : "unselected"}>
-          Join the community
-        </NavLink>
-        
+            <NavLink 
+              to="/signup" 
+              className={({ isActive }) => isActive ? "selected" : "unselected"}>
+              Join the community
+            </NavLink>
+          </>
+        )}
+
+        {isLoggedIn &&
+          <>
+            <NavLink 
+              to="/logout" 
+              className={({ isActive }) => isActive ? "selected" : "unselected"}>
+              Log out
+            </NavLink>
+          </>
+        }
       </ul>
       
     </nav>
