@@ -13,7 +13,7 @@ function EditService(props) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [isApproved, setIsApproved] = useState(false);
@@ -25,7 +25,7 @@ function EditService(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, picture, date, time, isApproved };
+    const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time, isApproved };
 
     axios.put(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, requestBody)
          .then((response) => {
@@ -33,7 +33,7 @@ function EditService(props) {
          });
   }
 
-  const deleteProject = () => {
+  const deleteService = () => {
     axios.delete(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`)
          .then(() => {
           navigate('/')
@@ -55,7 +55,7 @@ function EditService(props) {
           setEmail(oneService.email);
           setPhone(oneService.phone);
           setDescription(oneService.description);
-          setPicture(oneService.picture);
+          setImageUrl(oneService.picture);
           setDate(oneService.date);
           setTime(oneService.time);
           setIsApproved(oneService.isApproved);
@@ -96,8 +96,8 @@ function EditService(props) {
                 <input type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                 <label>Description:*</label>
                 <input type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
-                <label>Picture:</label>
-                <input type="text" name="picture" value={picture} onChange={(e) => setPicture(e.target.value)}/>
+                <label>Select an image url:</label>
+                <input type="text" name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.files)}/>
                 <label>In case you're submitting an event please indicate the date:</label>
                 <input type="text" name="date" value={date} onChange={(e) => setDate(e.target.value)}/>
                 <label>In case you're submitting an event please indicate the time:</label>
@@ -107,7 +107,7 @@ function EditService(props) {
                 <button type="submit">Submit changes</button>
             </form>
             <p>All fields marked with an asterisk are mandatory.</p>
-            <button onClick={deleteProject}>Delete Project</button>
+            <button onClick={deleteService}>Delete Submission</button>
       </div>
     );
   }
