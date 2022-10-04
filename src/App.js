@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />  
-    
+      
       <Routes>
         <Route path={"/"} element={<HomePage />} />
         <Route path={"/login"} element={<IsAnon><LoginPage /></IsAnon>} />

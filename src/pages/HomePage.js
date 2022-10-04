@@ -1,10 +1,12 @@
-import Map from "../components/Map";
+// import Map from "../components/Map";
+import MapComponent from "../components/MapComponent";
 
 function HomePage() {
   return (
     <div>
       <h1>Home</h1>
-      <Map />
+      {/* <Map /> */}
+      <MapComponent />
     </div>
   );
 }
