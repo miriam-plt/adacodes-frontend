@@ -1,14 +1,10 @@
 //import { Link } from 'react';
-import  Map, { Marker, Popup } from 'react-map-gl';
+import  Map, { Marker, Popup, FullscreenControl, NavigationControl } from 'react-map-gl';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const MapComponent = () => {
-   const [showPopup, setShowPopup] = useState(false);
-
-    const handleDisplayPopup = (e) => { e.originalEvent.stopPropagation(); setShowPopup(!showPopup)}
-    const handleClosePopup = () => {setShowPopup(!showPopup)}
-
+const MapView = () => {
+    const [selectedService, setSelectedService] = useState(null);
     const [services, setServices] = useState([]); 
     const [selectQuery, setSelectQuery] = useState("");
    
@@ -22,8 +18,6 @@ const MapComponent = () => {
     useEffect(() => { 
         getAllServices();
     }, [] );
-
-    //console.log(services)
     
     const handleChange = event => {
         setSelectQuery(event.target.value)
@@ -40,12 +34,10 @@ const MapComponent = () => {
         else {return services.isApproved === true}
     })
 
-    console.log(filteredServices)
-
     if(services.length === 0){ 
     return <p>Loading...</p>
-    }  
-  
+    }
+    
 
   return (
     <div className="Map">
@@ -57,7 +49,7 @@ const MapComponent = () => {
           <button className="support-btn" value="support" onClick={handleChange}>Support</button>
           <button className="jobs-btn" value="jobs" onClick={handleChange} >Jobs</button>
           <button className="others-btn" value="others" onClick={handleChange}>Others</button>
-      </div>
+        </div>
     
         <Map
             initialViewState={{
@@ -69,43 +61,46 @@ const MapComponent = () => {
             mapStyle="mapbox://styles/mapbox/streets-v11"
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         >
-        
-        { filteredServices.map((service) => {
-                return (
-                    <div key={service._id}>
-                        {!showPopup && 
-                        <Marker 
-                            longitude={service.longitude} 
-                            latitude={service.latitude} 
-                            anchor="bottom" 
-                            onClick={handleDisplayPopup}
-                        >
-                    </Marker>}
-                   
-                    {showPopup && 
-                        <Popup 
-                            longitude={service.longitude} 
-                            latitude={service.latitude} 
-                            onClose={handleClosePopup}
-                            anchor="bottom"
-                        >
-                            <img src={service.image} alt="service"></img>
-                            <h3>{service.name}</h3>
-                            <p>{service.street} {service.streetNr}</p>
-                            <p>{service.complement}</p>
-                            <p>{service.email}</p>
-                            <p>{service.website}</p>
-                            <p>{service.phone}</p>
-                            <p>Berlin {service.zip}</p>
-                            {/*<Link>View details</Link>*/}        
-                    </Popup>}
+
+            <FullscreenControl />
+            <NavigationControl />  
+
+            {filteredServices.map(service => (
+                <Marker 
+                    // color={chooseColor(service.category)}
+                    key={service._id}
+                    longitude={service.longitude} 
+                    latitude={service.latitude} 
+                    
+                    onClick={(e) => {
+                        e.originalEvent.stopPropagation();
+                        setSelectedService(service);
+                    }}    
+                    >
+
+                </Marker>
+            ))}
+
+            {selectedService ? (
+                <Popup
+                    
+                    longitude={selectedService.longitude} 
+                    latitude={selectedService.latitude} 
+                    onClose={() => setSelectedService(null)}
+                >
+                    <div>
+                        <h3>{selectedService.name}</h3>
+                        <p>{selectedService.street} {selectedService.streetNr}</p>
+                        <p>{selectedService.complement}</p>
+                        <p>{selectedService.email}</p>
+                        <p>{selectedService.website}</p>
+                        <p>{selectedService.phone}</p>
+                        <p>Berlin {selectedService.zip}</p>
                     </div>
-                )
-         })
-        }        
-        </Map>
+                </Popup>
+            ) : null}        
+        </Map>   
     </div>
-    
-  )
-}
-export default MapComponent
+  )};
+   
+export default MapView;

@@ -1,4 +1,4 @@
-import MapComponent from "../components/MapComponent";
+import MapView from "../components/MapView";
 
 
 function HomePage() {
@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <div>
       <h1>Home</h1>
-      <MapComponent />
+      <MapView />
     </div>
   );
 }
