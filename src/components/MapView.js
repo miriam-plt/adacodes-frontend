@@ -1,6 +1,7 @@
 //import { Link } from 'react';
 import  Map, { Marker, Popup, FullscreenControl, NavigationControl } from 'react-map-gl';
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 
 const MapView = () => {
@@ -96,6 +97,7 @@ const MapView = () => {
                         <p>{selectedService.website}</p>
                         <p>{selectedService.phone}</p>
                         <p>Berlin {selectedService.zip}</p>
+                        <Link to={`/service/${selectedService._id}`}>View details</Link>
                     </div>
                 </Popup>
             ) : null}        
