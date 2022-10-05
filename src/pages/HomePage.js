@@ -1,10 +1,12 @@
-import Map from "../components/Map";
+import MapView from "../components/MapView";
+
 
 function HomePage() {
+  
   return (
     <div>
       <h1>Home</h1>
-      <Map />
+      <MapView />
     </div>
   );
 }

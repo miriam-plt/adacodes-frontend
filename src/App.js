@@ -15,11 +15,14 @@ import ThankYouPage from './pages/ThankYouPage';
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
+import React from "react";
+
 function App() {
+
   return (
     <div className="App">
-      <Navbar />
-    
+      <Navbar />  
+      
       <Routes>
         <Route path={"/"} element={<HomePage />} />
         <Route path={"/login"} element={<IsAnon><LoginPage /></IsAnon>} />
