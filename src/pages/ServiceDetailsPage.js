@@ -30,6 +30,12 @@ function ServiceDetails (props) {
     <div className="ServiceDetails">
       {service && (
         <>
+        {service.imageUrl &&(
+          <>
+          <img src={service.imageUrl} alt="service" width="400px"></img>
+          </>
+        )}
+
           <h1>{service.name}</h1>
           <h5>Address: {service.complement} {service.street} {service.streetNr} {service.zip} Berlin</h5>
           <h6>{service.date} {service.time}</h6>

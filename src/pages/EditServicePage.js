@@ -17,6 +17,8 @@ function EditService(props) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [isApproved, setIsApproved] = useState(false);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   const navigate = useNavigate();
   const { serviceId } = useParams();
@@ -25,7 +27,7 @@ function EditService(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time, isApproved };
+    const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time, isApproved, latitude, longitude };
 
     axios.put(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, requestBody)
          .then((response) => {
@@ -55,10 +57,12 @@ function EditService(props) {
           setEmail(oneService.email);
           setPhone(oneService.phone);
           setDescription(oneService.description);
-          setImageUrl(oneService.picture);
+          setImageUrl(oneService.imageUrl);
           setDate(oneService.date);
           setTime(oneService.time);
           setIsApproved(oneService.isApproved);
+          setLatitude(oneService.latitude);
+          setLongitude(oneService.longitude);
          })
          .catch((error) => console.log(error));
   }, [])
@@ -88,6 +92,12 @@ function EditService(props) {
                 <input type="text" name="complement" value={complement} onChange={(e) => setComplement(e.target.value)}/>
                 <label>Zip:</label>
                 <input type="text" name="zip" value={zip} onChange={(e) => setZip(e.target.value)}/>
+
+                <label>Please indicate here the latitude:</label>
+                <input type="text" name="latitude" value={latitude} onChange={(e) => setLatitude(e.target.value)}/>
+                <label>Please indicate here the longitute:</label>
+                <input type="text" name="longitude" value={longitude} onChange={(e) => setLongitude(e.target.value)}/>
+
                 <label>Website:</label>
                 <input type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)}/>
                 <label>E-mail address:</label>
@@ -97,13 +107,24 @@ function EditService(props) {
                 <label>Description:*</label>
                 <input type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
                 <label>Select an image url:</label>
-                <input type="text" name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.files)}/>
-                <label>In case you're submitting an event please indicate the date:</label>
-                <input type="text" name="date" value={date} onChange={(e) => setDate(e.target.value)}/>
-                <label>In case you're submitting an event please indicate the time:</label>
-                <input type="text" name="time" value={time} onChange={(e) => setTime(e.target.value)}/>
-                <label htmlFor="isApproved">Approve submission:</label>
-                <input type="checkbox" name="isApproved" value={isApproved} onChange={(e) => setIsApproved(!isApproved)} />
+                <input type="text" name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
+
+              {category.includes("event") && (
+                <>
+                  <label>In case you're submitting an event please indicate the date:</label>
+                  <input type="text" name="date" value={date} onChange={(e) => setDate(e.target.value)}/>
+                  <label>In case you're submitting an event please indicate the time:</label>
+                  <input type="text" name="time" value={time} onChange={(e) => setTime(e.target.value)}/>
+                </>
+              )}
+                                
+              {!isApproved && (
+                <>
+                  <label htmlFor="isApproved">Approve submission:</label>
+                  <input type="checkbox" name="isApproved" value={isApproved} onChange={(e) => setIsApproved(!isApproved)} />
+                </> 
+              )}
+
                 <button type="submit">Submit changes</button>
             </form>
             <p>All fields marked with an asterisk are mandatory.</p>
