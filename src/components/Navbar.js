@@ -3,36 +3,50 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context"; 
 
 function Navbar() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, username, logOutUser } = useContext(AuthContext);
+  console.log(username)
 
   return (
     <nav className="Navbar">
       <ul>
         
-        <NavLink to="/" className={({ isActive }) => isActive ? "selected" : "unselected"}>
-          Home
+        <NavLink to="/" className="home-btn">
+          <img className="logo" src={"https://static.vecteezy.com/system/resources/previews/001/209/770/non_2x/square-png.png"} alt="logo" width="60px" />
         </NavLink>
         
         <NavLink 
           to="/about" 
-          className={({ isActive }) => isActive ? "selected" : "unselected"}>
-          About
+          className= {({ isActive }) => isActive ? "navlink selected" : "navlink unselected"}>
+          About us
         </NavLink>
 
         {!isLoggedIn && (
           <>
-            <Link to="/signup"> <button>Sign Up</button> </Link>
-            <Link to="/login"> <button>Login</button> </Link>
+            <NavLink 
+              to="/login" 
+              className={({ isActive }) => isActive ? "navlink selected" : "navlink unselected"}>
+              Share your suggestion
+            </NavLink>
+            <Link to="/signup" className="navlink btn"> <button>Sign Up</button> </Link>
+            <Link to="/login" className="navlink btn"> <button>Login</button> </Link>
           </>
         )}
-
 
         {isLoggedIn && (
           <>
-            <button onClick={logOutUser}>Logout</button>
-            <span>{user && user.username}</span>
+            <NavLink 
+              to="/service/add" 
+              className={({ isActive }) => isActive ? "selected" : "unselected"}>
+              Share your suggestion
+            </NavLink>
+            <Link to="/service/list" className="navlink btn"> <button>List</button> </Link>
+            <Link to="/" className="navlink btn"> <button>Map</button> </Link>
+            <button className="navlink btn" onClick={logOutUser}>Logout</button>
+            <span className="navlink greetings">{`Hello ${username && username.username}!`}</span>
           </>
         )}
+
+
 
       </ul>
       
