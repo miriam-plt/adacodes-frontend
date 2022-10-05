@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditService(props) {
+function EditService() {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [street, setStreet] = useState("");
@@ -39,6 +39,7 @@ function EditService(props) {
           navigate(`/service/${serviceId}`)
          });
   }
+
 
   const deleteService = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -133,17 +134,11 @@ function EditService(props) {
                 </>
               )}
                                 
-              {!isApproved && (
-                <>
-                  <label htmlFor="isApproved">Approve submission:</label>
-                  <input type="checkbox" name="isApproved" value={isApproved} onChange={(e) => setIsApproved(!isApproved)} />
-                </> 
-              )}
-
-                <button type="submit">Submit changes</button>
+                <button type="submit">Save changes</button>
             </form>
             <p>All fields marked with an asterisk are mandatory.</p>
-            <button onClick={deleteService}>Delete Submission</button>
+            <button onClick={deleteService}>Delete</button>
+      
       </div>
     );
   }
