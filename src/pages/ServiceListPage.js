@@ -6,7 +6,7 @@ import ServiceCard from "../components/ServiceCard";
 function ServiceListPage() {
     const [services, setServices] = useState([]); 
     const [selectQuery, setSelectQuery] = useState("");
-   
+   console.log(services)
     const getAllServices = () => { 
       axios
         .get(`${process.env.REACT_APP_API_URL}/api/services`)
@@ -33,6 +33,8 @@ function ServiceListPage() {
         if (selectQuery === "pending"){ return services.isApproved === false}
         else {return services.isApproved === true}
     })
+
+
    
     if(services.length === 0){ 
       return <p>Loading...</p>

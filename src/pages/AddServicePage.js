@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import service from "../service";
 
-function AddService(props) {
+function AddService() {
     const navigate = useNavigate();
     const [name, setName] = useState("");
     const [category, setCategory] = useState("");
@@ -14,7 +15,7 @@ function AddService(props) {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [description, setDescription] = useState("");
-    const [picture, setPicture] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
 
@@ -28,17 +29,31 @@ function AddService(props) {
     const handleEmail = (e) => setEmail(e.target.value);
     const handlePhone = (e) => setPhone(e.target.value);
     const handleDescription = (e) => setDescription(e.target.value);
-    const handlePicture = (e) => setPicture(e.target.value);
     const handleDate = (e) => setDate(e.target.value);
     const handleTime = (e) => setTime(e.target.value);
+
+    const handleFileUpload = e => {
+        const uploadData = new FormData();
+        uploadData.append("imageUrl", e.target.files[0]);
+
+        service
+        .uploadImage(uploadData)
+        .then(response => {
+          // console.log("response is: ", response);
+          // response carries "fileUrl" which we can use to update the state
+          setImageUrl(response.fileUrl);
+        })
+        .catch(err => console.log("Error while uploading the file: ", err));
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, picture, date, time };
+        const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time };
         console.log(requestBody);
         const storedToken = localStorage.getItem('authToken');
-        axios.post(`${process.env.REACT_APP_API_URL}/api/services`, requestBody, {headers: {Authorization: `Bearer ${storedToken}`}})
+        service
+             .createService(requestBody)
              .then((response) => {
                 setName('');
                 setCategory('');
@@ -50,7 +65,7 @@ function AddService(props) {
                 setEmail('');
                 setPhone('');
                 setDescription('');
-                setPicture('');
+                setImageUrl('');
                 setDate('');
                 setTime('');
                 navigate('/thankyou');
@@ -58,6 +73,7 @@ function AddService(props) {
                 .catch((error) => console.log(error));
     }
   
+
     return (
         <div className="AddService">
             <h3>Submit your suggestion</h3>
@@ -91,8 +107,8 @@ function AddService(props) {
                 <input type="text" name="phone"  onChange={(e) => handlePhone(e)}/>
                 <label>Description:*</label>
                 <input type="text" name="description"  onChange={(e) => handleDescription(e)}/>
-                <label>Picture:</label>
-                <input type="text" name="picture"  onChange={(e) => handlePicture(e)}/>
+                <label>Select an image:</label>
+                <input type="file" name="imageUrl"  onChange={(e) => handleFileUpload(e)}/>
                 <label>In case you're submitting an event please indicate the date:</label>
                 <input type="text" name="date"  onChange={(e) => handleDate(e)}/>
                 <label>In case you're submitting an event please indicate the time:</label>
