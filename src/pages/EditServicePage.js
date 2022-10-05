@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-function EditService(props) {
+function EditService() {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [street, setStreet] = useState("");
@@ -117,13 +117,9 @@ function EditService(props) {
                   <input type="text" name="time" value={time} onChange={(e) => setTime(e.target.value)}/>
                 </>
               )}
-                                
-              {!isApproved && (
-                <>
-                  <label htmlFor="isApproved">Approve submission:</label>
+
+              <label htmlFor="isApproved">Approve submission:</label>
                   <input type="checkbox" name="isApproved" value={isApproved} onChange={(e) => setIsApproved(!isApproved)} />
-                </> 
-              )}
 
                 <button type="submit">Submit changes</button>
             </form>
