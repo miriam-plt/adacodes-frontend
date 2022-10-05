@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import service from "../service";
 
@@ -51,7 +50,7 @@ function AddService() {
 
         const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time };
         console.log(requestBody);
-        const storedToken = localStorage.getItem('authToken');
+        
         service
              .createService(requestBody)
              .then((response) => {

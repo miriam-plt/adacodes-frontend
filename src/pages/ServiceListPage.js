@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ServiceCard from "../components/ServiceCard";
-
+//import { AuthContext } from "../context/auth.context";
+//useContext
+import { Link } from 'react-router-dom';
 
 function ServiceListPage() {
+
+  //const {username} = useContext(AuthContext);
     const [services, setServices] = useState([]); 
     const [selectQuery, setSelectQuery] = useState("");
    console.log(services)
@@ -45,7 +49,6 @@ function ServiceListPage() {
       return <p>Loading...</p>
     }
     
-    
     return ( 
       <div className="ServiceListPage">
         <div>            
@@ -57,6 +60,8 @@ function ServiceListPage() {
             <button className="jobs-btn" value="jobs" onClick={handleChange} >Jobs</button>
             <button className="others-btn" value="others" onClick={handleChange}>Others</button>
             <button className="pending-btn" value="pending" onClick={handleChange}>Pending</button>
+            <Link to="/">View map</Link>
+            
         </div>
 
 
