@@ -8,8 +8,13 @@ function ServiceListPage() {
     const [selectQuery, setSelectQuery] = useState("");
    console.log(services)
     const getAllServices = () => { 
+      const storedToken = localStorage.getItem("authToken");
+
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/services`)
+        .get(
+          `${process.env.REACT_APP_API_URL}/api/services`,
+          { headers: { Authorization: `Bearer ${storedToken}` } }
+        )
         .then((response) => setServices(response.data))
         .catch((error) => console.log(error));
     };

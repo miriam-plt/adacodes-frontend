@@ -28,15 +28,26 @@ function EditService() {
     e.preventDefault();
 
     const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time, isApproved, latitude, longitude };
+    const storedToken = localStorage.getItem("authToken");
 
-    axios.put(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, requestBody)
+    axios.put(
+      `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, 
+      requestBody,
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
          .then((response) => {
           navigate(`/service/${serviceId}`)
          });
   }
 
+
   const deleteService = () => {
-    axios.delete(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`)
+    const storedToken = localStorage.getItem("authToken");
+
+    axios.delete(
+      `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`,
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
          .then(() => {
           navigate('/')
          })
@@ -44,7 +55,12 @@ function EditService() {
   };
 
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`)
+    const storedToken = localStorage.getItem("authToken");
+
+    axios.get(
+      `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`,
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
          .then((response) => {
           const oneService = response.data;
           setName(oneService.name);
@@ -117,14 +133,12 @@ function EditService() {
                   <input type="text" name="time" value={time} onChange={(e) => setTime(e.target.value)}/>
                 </>
               )}
-
-              <label htmlFor="isApproved">Approve submission:</label>
-                  <input type="checkbox" name="isApproved" value={isApproved} onChange={(e) => setIsApproved(!isApproved)} />
-
-                <button type="submit">Submit changes</button>
+                                
+                <button type="submit">Save changes</button>
             </form>
             <p>All fields marked with an asterisk are mandatory.</p>
-            <button onClick={deleteService}>Delete Submission</button>
+            <button onClick={deleteService}>Delete</button>
+      
       </div>
     );
   }
