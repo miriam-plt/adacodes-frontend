@@ -28,15 +28,25 @@ function EditService(props) {
     e.preventDefault();
 
     const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time, isApproved, latitude, longitude };
+    const storedToken = localStorage.getItem("authToken");
 
-    axios.put(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, requestBody)
+    axios.put(
+      `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, 
+      requestBody,
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
          .then((response) => {
           navigate(`/service/${serviceId}`)
          });
   }
 
   const deleteService = () => {
-    axios.delete(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`)
+    const storedToken = localStorage.getItem("authToken");
+
+    axios.delete(
+      `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`,
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
          .then(() => {
           navigate('/')
          })
@@ -44,7 +54,12 @@ function EditService(props) {
   };
 
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`)
+    const storedToken = localStorage.getItem("authToken");
+
+    axios.get(
+      `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`,
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
          .then((response) => {
           const oneService = response.data;
           setName(oneService.name);

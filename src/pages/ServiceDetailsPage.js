@@ -3,14 +3,17 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
  
  
-function ServiceDetails (props) {
+function ServiceDetails () {
   const [service, setService] = useState(null); // 1. Define a State variable for the upcoming service
-  
   const { serviceId } = useParams(); 
+  const storedToken = localStorage.getItem("authToken");
  
   const getService = () => {          
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/services/${serviceId}`)
+      .get(
+        `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
       .then((response) => {
         const oneService = response.data;
         setService(oneService);

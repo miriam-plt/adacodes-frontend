@@ -28,7 +28,7 @@ function App() {
         <Route path={"/login"} element={<IsAnon><LoginPage /></IsAnon>} />
         <Route path={"/signup"} element={<IsAnon><SignupPage /></IsAnon>} />
         <Route path={"/service/add"} element={<IsPrivate><AddService /></IsPrivate>} />
-        <Route path={"/service/edit/:serviceId"} element={<EditService />} />
+        <Route path={"/service/edit/:serviceId"} element={<IsPrivate><EditService /></IsPrivate>} />
         <Route path={"/service/list"} element={<ServiceListPage />} />
         <Route path={"/service/:serviceId"} element={<ServiceDetails />} />
         <Route path={"/about"} element={<AboutPage />} />
