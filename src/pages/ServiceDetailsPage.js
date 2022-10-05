@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import ServiceMap from "../components/ServiceMap";
+import { ExternalLink } from 'react-external-link';
  
  
 function ServiceDetails () {
@@ -54,6 +56,9 @@ function ServiceDetails () {
 
   return ( 
     <div className="ServiceDetails">
+
+      <ServiceMap key={service._id} latitude={service.latitude} longitude={service.longitude}/>
+      
       {service && (
         <>
         {service.imageUrl &&(
@@ -61,25 +66,57 @@ function ServiceDetails () {
           <img src={service.imageUrl} alt="service" width="400px"></img>
           </>
         )}
-
-          <h1>{service.name}</h1>
-          <h5>Address: {service.complement} {service.street} {service.streetNr} {service.zip} Berlin</h5>
-          <h6>{service.date} {service.time}</h6>
-          <p>Website: {service.website}</p>
-          <p>Email: {service.email} Phone: {service.phone}</p>
-          <p>{service.description}</p>
+          <div className="ServiceContent">
+            <h1>{service.name}</h1>
+            <Link to="/service/list">
+              👈 Back to services
+            </Link>
+            <h4>
+              <p>
+                {service.street !== "" && service.street} 
+                {service.streetNr !== "" && ` ${service.streetNr}`}
+              </p>
+              {service.complement !== "" && (
+                <p>{service.complement}</p>
+              )}
+              {service.zip !== "" && (
+                <p>Berlin {service.zip}</p>
+              )}
+            </h4>
+            {service.description !== "" && (
+              <p>{service.description}</p>
+            )}
+            {service.date !== "" && (
+              <p>🗓 {service.date}</p>
+            )}
+            {service.time !== "" && (
+              <p>🕑 {service.time}</p>
+            )}
+            {service.website !== "" && (
+              <ExternalLink href={`${service.website}`}>
+                <span>{`👩‍💻 ${service.website}`}</span>
+              </ExternalLink>
+            )}
+            {service.email !== "" && (
+              <p>✉️ {service.email}</p>
+            )}
+            {service.phone !== "" && (
+              <p>📞 {service.phone}</p>
+            )}
+          </div>
         </>
       )}
+      
 
-      <Link to="/service/list">
-        <button>Back to services</button>
-      </Link>
-
-      <Link to={`/service/edit/${serviceId}`}>
-        <button>Edit Submission</button>
-      </Link>
-
+      
+      <div className="ActionButtons">
+        <Link to={`/service/edit/${serviceId}`}>
+          <button>Edit Submission</button>
+        </Link>
       {<button onClick={publishService}>Publish</button>}
+
+      </div>
+      
  
     </div>
   );

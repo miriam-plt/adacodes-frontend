@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import ServiceCard from "../components/ServiceCard";
-//import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../context/auth.context";
 //useContext
 import { Link } from 'react-router-dom';
 
 function ServiceListPage() {
 
-  //const {username} = useContext(AuthContext);
+  const {username} = useContext(AuthContext);
     const [services, setServices] = useState([]); 
     const [selectQuery, setSelectQuery] = useState("");
    console.log(services)
