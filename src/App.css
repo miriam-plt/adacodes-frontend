@@ -49,7 +49,6 @@ button.nav-btn {
   border-radius: 9px;
 }
 
-
 .navlink {
   margin: 20px;
   text-decoration: none;
@@ -92,9 +91,10 @@ button.nav-btn {
 /* Header */
 
 .header {
-  background-image: url("https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80");
+  background-image: url("https://images.unsplash.com/photo-1633856384682-cff3b9f06682?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2048&q=80");
   background-size: cover;
-  background-position: center;
+  /*background-position: center;*/
+  opacity: 0.9;
   filter: brightness();
   height: 95vh;
   width: 100vw;
@@ -173,17 +173,22 @@ button.nav-btn {
 /* HOME */
 /* Section */
 
-.submit {
+.container-submit {
   margin-top: 100px;
   margin-bottom: 100px;
-  margin-left: 400px;
-  margin-right: 400px;
+  width: 600px;
   padding: 40px;
   border-radius: 10px;
   background-color: bisque;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 

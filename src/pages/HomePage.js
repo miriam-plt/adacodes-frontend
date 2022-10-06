@@ -11,8 +11,8 @@ function HomePage() {
       </div>
       
       <MapView />
-
-      <section className="submit">
+      <div className="submit">
+      <section className="container-submit">
         <div>
           <h2>Do you have a suggestion?</h2>
           <h5>Share your suggestion and help the community</h5>
@@ -21,6 +21,7 @@ function HomePage() {
           <button className="submit-btn btn">Send suggestion</button>
         </div>
       </section>
+      </div>
     </div>
   );
 }
