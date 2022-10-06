@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css2?family=K2D&family=Roboto&display=swap');
 
 .App {
   text-align: center;
@@ -48,6 +49,7 @@ button.nav-btn {
   border-radius: 9px;
 }
 
+
 .navlink {
   margin: 20px;
   text-decoration: none;
@@ -90,7 +92,7 @@ button.nav-btn {
 /* Header */
 
 .header {
-  background-image: url(https://plus.unsplash.com/premium_photo-1661932871892-fbc41686a855?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2012&q=80);
+  background-image: url("https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80");
   background-size: cover;
   background-position: center;
   filter: brightness();
@@ -102,14 +104,26 @@ button.nav-btn {
   align-items: center;
 }
 
-.header h5 {
-  width: 600px;
+.title {
+  font-family: 'K2D', sans-serif;
+  font-size: 80px;
+  color: #000; 
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
 }
 
+.header h5 {
+  width: 600px;
+  font-size: 16px;
+  font-weight: 100;
+  margin-top: 0;
+}
+
+/* HOME */
 /* Buttons */
+
 .map-btn {
   padding: 10px 30px;
-  background-color: #555;
   color: white;
   border: none;
   border-radius: 9px;
@@ -119,12 +133,66 @@ button.nav-btn {
   margin-right: 5px;
 }
 
+.allServices-btn {
+  background-color: aqua;
+}
+
+.events-btn {
+  background-color: rgb(6, 186, 186);
+}
+
+.groups-btn {
+  background-color: rgb(7, 129, 129);
+}
+
+.learning-btn {
+  background-color: rgb(40, 134, 134);
+}
+
+.support-btn {
+  background-color: rgb(64, 106, 106);
+}
+
+.jobs-btn {
+  background-color: rgb(97, 210, 210);
+}
+
+.map-btn:hover {
+  background: #fff;
+  color: #6d6c65;
+  transition: 0.3s ease background;
+}
+
+/* HOME */
 /* Map */
 
+.map-marker {
+  border: none;
+}
 
-/* Section (with submission) */
+/* HOME */
+/* Section */
+
 .submit {
   margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 400px;
+  margin-right: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: bisque;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 30px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 9px;
 }
 
 
@@ -145,3 +213,4 @@ button.nav-btn {
 /* SERVICE DETAILS PAGE */
 
 /* THANK YOU PAGE */
+/* ERROR */

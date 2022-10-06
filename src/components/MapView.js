@@ -59,7 +59,7 @@ const MapView = () => {
             zoom: 11
             }}
             style={{width: '100vw', height: '70vh'}}
-            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapStyle="mapbox://styles/mapbox/light-v10"
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         >
 
@@ -77,7 +77,10 @@ const MapView = () => {
                         e.originalEvent.stopPropagation();
                         setSelectedService(service);
                     }}    
-                    >
+                    > 
+                    
+                    <img className='map-marker' src="https://www.pngkey.com/png/full/163-1637155_light-blue-circle-png-circle.png" width="20px" alt="marker" />
+                    
 
                 </Marker>
             ))}
