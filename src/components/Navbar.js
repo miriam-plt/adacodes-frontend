@@ -11,7 +11,7 @@ function Navbar() {
         
       <div className="navbar logo">
         <NavLink to="/" >
-          <img className="logo" src={"https://static.vecteezy.com/system/resources/previews/001/209/770/non_2x/square-png.png"} alt="logo" width="30px" />
+          <img className="logo" src={"https://64.media.tumblr.com/0b2de04ff443fa82ba8f44dc3cfd586a/c662ab4f49c20770-74/s500x750/3ec70bd9f9adcf928f569d7ab6e52caad7ae92de.pnj"} alt="logo" width="70px" />
         </NavLink>
       </div>
         

@@ -18,7 +18,9 @@ function HomePage() {
           <h5>Share your suggestion and help the community</h5>
         </div>
         <div>
-          <button className="submit-btn btn">Send suggestion</button>
+          <form action="/service/add">
+          <input type="submit" className="submit-btn btn" value="Send suggestion" />
+          </form>
         </div>
       </section>
       </div>

@@ -8,6 +8,7 @@ import axios from "axios";
 const MapView = () => {
     const [selectedService, setSelectedService] = useState(null);
     const [services, setServices] = useState([]); 
+    
     const [selectQuery, setSelectQuery] = useState("");
    
     const getAllServices = () => { 

@@ -64,7 +64,7 @@ function ServiceDetails () {
         <>
         {service.imageUrl &&(
           <>
-          <img src={service.imageUrl} alt="service" width="400px"></img>
+          <img className="service-pic" src={service.imageUrl} alt="service-pic" width="400px"></img>
           </>
         )}
           <div className="ServiceContent">
