@@ -80,7 +80,7 @@ function EditService() {
           setLongitude(oneService.longitude);
          })
          .catch((error) => console.log(error));
-  }, [])
+  }, [serviceId])
 
 
     return (
@@ -88,7 +88,7 @@ function EditService() {
         <Navbar />
         <h1>Edit Service</h1>
         <p>*Marked fields are mandatory</p>
-        <form className="AuthForm" onSubmit={handleSubmit}>
+        <form className="ServiceForm" onSubmit={handleSubmit}>
 
           <container className="FormGroup">
             <h4>GENERAL INFO</h4>
@@ -194,7 +194,7 @@ function EditService() {
                              
           <button className="SaveBtn" type="submit">Save</button>
           <Link to="/service/list">
-            <button className="SaveBtn" type="submit">Cancel</button> 
+            <button className="CancelBtn" type="submit">Cancel</button> 
           </Link>
             
         </form>

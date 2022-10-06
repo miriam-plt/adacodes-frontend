@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import service from "../service";
+import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { createService, uploadImage } from "../service";
+
 
 function AddService() {
     const navigate = useNavigate();
@@ -36,8 +37,7 @@ function AddService() {
         const uploadData = new FormData();
         uploadData.append("imageUrl", e.target.files[0]);
 
-        service
-        .uploadImage(uploadData)
+       uploadImage(uploadData)
         .then(response => {
           // console.log("response is: ", response);
           // response carries "fileUrl" which we can use to update the state
@@ -52,8 +52,7 @@ function AddService() {
         const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time };
         console.log(requestBody);
         
-        service
-             .createService(requestBody)
+            createService(requestBody)
              .then((response) => {
                 setName('');
                 setCategory('');
@@ -80,17 +79,17 @@ function AddService() {
             <h1>Submit your suggestion</h1>
             <p>*Marked fields are mandatory</p>
 
-            <form className="AuthForm" onSubmit={handleSubmit}>
+            <form className="ServiceForm" onSubmit={handleSubmit}>
                 <container className="FormGroup">
                     <h4>GENERAL INFO</h4>
 
-                    <div className="InputField">
-                        <label className="InputTitle">*Name of the service</label>
-                        <input className="Input" type="text" name="name" onChange={(e) => handleName(e)}/>
+                    <div>
+                        <label>*Name of the service</label>
+                        <input type="text" name="name" onChange={(e) => handleName(e)}/>
                     </div>
 
-                    <div className="InputField">
-                        <label className="InputTitle">*Category</label>
+                    <div>
+                        <label>*Category</label>
                         <select className="dropdown" name="category" onChange={(e) => handleCategory(e)}>
                         <option defaultValue="events"  hidden>Select a category</option>
                             <option value="events">Events</option>
@@ -103,73 +102,78 @@ function AddService() {
 
                         {category.includes("event") && (
                             <>
-                                <div className="InputField">
-                                    <label className="InputTitle">Please indicate the date of the event</label>
-                                    <input className="Input" type="text" name="date" value={date} onChange={(e) => handleDate(e)}/>
+                                <div>
+                                    <label>Please indicate the date of the event</label>
+                                    <input type="text" name="date" value={date} onChange={(e) => handleDate(e)}/>
                                 </div>    
                                         
-                                <div className="InputField">
-                                    <label className="InputTitle">What time is the event taking place?</label>
-                                    <input className="Input" type="text" name="time" value={time} onChange={(e) => handleTime(e)}/>
+                                <div>
+                                    <label>What time is the event taking place?</label>
+                                    <input type="text" name="time" value={time} onChange={(e) => handleTime(e)}/>
                                 </div>
                             </>
                         )}
                     </div>    
 
-                    <div className="InputField">
-                        <label className="InputTitle">*Description</label>
+                    <div>
+                        <label>*Description</label>
                         <input className="DescriptionInput" type="text" name="description"  onChange={(e) => handleDescription(e)}/>
                     </div>
 
                     <div className="ImgUpload">
-                        <label className="InputTitle">Select an image to upload</label>
-                        <input className="Input" type="file" name="imageUrl"  onChange={(e) => handleFileUpload(e)}/>
+                        <label>Select an image to upload</label>
+                        <input type="file" name="imageUrl"  onChange={(e) => handleFileUpload(e)}/>
                     </div>
                 </container>
                 <br/>
                 <container className="FormGroup">
                     <h4>ADDRESS</h4>
 
-                    <div className="InputField">
-                        <label className="InputTitle">Street</label>
-                        <input className="Input" type="text" name="street"  onChange={(e) => handleStreet(e)}/>
+                    <div>
+                        <label>Street</label>
+                        <input type="text" name="street"  onChange={(e) => handleStreet(e)}/>
                     </div>
 
-                    <div className="InputField">
-                        <label className="InputTitle">Number</label>
-                        <input className="Input" type="text" name="streetNr"  onChange={(e) => handleStreetNr(e)}/> 
+                    <div>
+                        <label>Number</label>
+                        <input type="text" name="streetNr"  onChange={(e) => handleStreetNr(e)}/> 
                     </div>
 
-                    <div className="InputField">
-                        <label className="InputTitle">Complement</label>
-                        <input className="Input" type="text" name="complement"  onChange={(e) => handleComplement(e)}/>
+                    <div>
+                        <label>Complement</label>
+                        <input type="text" name="complement"  onChange={(e) => handleComplement(e)}/>
                     </div>
 
-                    <div className="InputField">
-                        <label className="InputTitle">Zip code</label>
-                        <input className="Input" type="text" name="zip" onChange={(e) => handleZip(e)}/>
+                    <div>
+                        <label>Zip code</label>
+                        <input type="text" name="zip" onChange={(e) => handleZip(e)}/>
                     </div>
                 </container>
 
                 <container className="FormGroup">
                     <h4>CONTACTS</h4>
-                    <div className="InputField">
-                        <label className="InputTitle">Website</label>
-                        <input className="Input" type="text" name="website"  onChange={(e) => handleWebsite(e)}/>
+                    <div>
+                        <label>Website</label>
+                        <input type="text" name="website"  onChange={(e) => handleWebsite(e)}/>
                     </div>
 
-                    <div className="InputField">
-                        <label className="InputTitle">E-mail</label>
-                        <input className="Input" type="text" name="email"  onChange={(e) => handleEmail(e)}/>
+                    <div>
+                        <label>E-mail</label>
+                        <input type="text" name="email"  onChange={(e) => handleEmail(e)}/>
                     </div>
 
-                    <div className="InputField">
-                        <label className="InputTitle">Phone</label>
-                        <input className="Input" type="text" name="phone"  onChange={(e) => handlePhone(e)}/>
+                    <div>
+                        <label>Phone</label>
+                        <input type="text" name="phone"  onChange={(e) => handlePhone(e)}/>
                     </div>
                 </container>
       
                 <button className="SaveBtn" type="submit">Submit</button>
+                
+                <Link to="/service/list">
+                    <button className="CancelBtn" type="submit">Cancel</button> 
+                </Link> 
+                
             </form>
         
         </div>

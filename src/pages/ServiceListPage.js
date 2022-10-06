@@ -8,10 +8,10 @@ import Navbar from "../components/Navbar";
 function ServiceListPage() {
 
   const { user } = useContext(AuthContext);
-  console.log(user)
   const [services, setServices] = useState([]); 
+  const [filteredServices, setFilteredServices] = useState([]);
   const [selectQuery, setSelectQuery] = useState("");
-  //console.log(services)
+
   const getAllServices = () => { 
     const storedToken = localStorage.getItem("authToken");
 
@@ -20,29 +20,37 @@ function ServiceListPage() {
         `${process.env.REACT_APP_API_URL}/api/services`,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
-      .then((response) => setServices(response.data))
+      .then((response) => {
+        const filtered = response.data.filter(services => {
+          if (selectQuery === "all"){ return services.isApproved === true}
+          if (selectQuery === "events"){ return services.category.includes("events") && services.isApproved === true}
+          if (selectQuery === "groups"){ return services.category.includes("groups") && services.isApproved === true}
+          if (selectQuery === "learning"){ return services.category.includes("learning") && services.isApproved === true}
+          if (selectQuery === "support"){ return services.category.includes("support") && services.isApproved === true}
+          if (selectQuery === "jobs"){ return services.category.includes("jobs") && services.isApproved === true}
+          if (selectQuery === "others"){ return services.category.includes("others") && services.isApproved === true}
+          if (selectQuery === "pending"){ return services.isApproved === false}
+          else {return services.isApproved === true}
+      })
+
+        setFilteredServices(filtered)
+        setServices(response.data)
+      
+      })
       .catch((error) => console.log(error));
   };
    
     useEffect(() => { 
       getAllServices();
+      // eslint-disable-next-line
     }, [] );
+
 
     const handleChange = event => {
         setSelectQuery(event.target.value)
     }
 
-    const filteredServices = services.filter(services => {
-        if (selectQuery === "all"){ return services.isApproved === true}
-        if (selectQuery === "events"){ return services.category.includes("events") && services.isApproved === true}
-        if (selectQuery === "groups"){ return services.category.includes("groups") && services.isApproved === true}
-        if (selectQuery === "learning"){ return services.category.includes("learning") && services.isApproved === true}
-        if (selectQuery === "support"){ return services.category.includes("support") && services.isApproved === true}
-        if (selectQuery === "jobs"){ return services.category.includes("jobs") && services.isApproved === true}
-        if (selectQuery === "others"){ return services.category.includes("others") && services.isApproved === true}
-        if (selectQuery === "pending"){ return services.isApproved === false}
-        else {return services.isApproved === true}
-    })
+    
    
     if(services.length === 0){ 
       return <p>Loading...</p>

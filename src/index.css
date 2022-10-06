@@ -84,12 +84,15 @@ a {
   display: flex;
 }
 
-.AuthForm {
+.ServiceForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+}
+
+.ServiceForm .SaveBtn {
+  margin-top: 30px;
 }
 
 .CallToAction {
@@ -152,10 +155,11 @@ a {
 
 }
 
-.SaveBtn {
+.SaveBtn,
+.CancelBtn {
   height: 35px;
   width: 284px;
-  margin: 10px 0 10px 0;
+  margin: 8px 0 8px 0;
   font-size: 0.9em;
   font-weight: 500;
 }
@@ -174,7 +178,7 @@ a {
   align-content: center;
 }
 
-.Input {
+.FormGroup input {
   height: 26px;
   width: 280px;
   padding: 0;
@@ -182,22 +186,84 @@ a {
 
 .ImgUpload {
   background-color: rgb(232, 232, 232);
-  width: 284px;
+  width: 274px !important;
   text-align: left;
   padding-left: 10px;
   padding-bottom: 5px;
   border-radius: 3px;
+  margin-top: 25px !important;
+  height: 55px;
 }
 
-.AuthForm label {
+.ImgUpload input {
+  margin-top: 10px !important;
+}
+
+.ServiceForm label {
   font-size: 0.7em;
   font-weight: 600;
   margin: 3px 0 3px 0;
 }
 
-.AuthForm div {
+.ServiceForm div {
   text-align: left;
   margin: 5px 0 5px 0;
   display: flex;
   flex-direction: column;
+}
+
+
+
+.AuthenticationContent {
+  width: 100%;
+  display: flex;
+}
+
+.Authentication {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.Authentication .SaveBtn {
+  margin-top: 30px;
+}
+
+.Authentication label {
+  font-size: 0.7em;
+  font-weight: 600;
+  margin: 3px 0 3px 0;
+}
+
+.Authentication div {
+  text-align: left;
+  margin: 5px 0 5px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ServiceCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ServiceCard p {
+  text-align: left;
+  width: 45vw;
+  margin-top: 0;
+}
+
+.ServiceCard h2 {
+  margin-bottom: 0;
+}
+
+.ServiceCard a {
+  font-size: 0.8em;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 30px;
 }

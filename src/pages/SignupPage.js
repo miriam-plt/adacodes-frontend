@@ -30,10 +30,10 @@ function Signup() {
     };
 
     return (
-      <div className="AuthContent">
+      <div className="AuthenticationContent">
         <img className="BackgroundImg" src={background} alt="background"/>
         
-        <form className="AuthForm" onSubmit={handleLoginSubmit}>
+        <form className="Authentication" onSubmit={handleLoginSubmit}>
             <h1>Create an account</h1>
             
             <div>
