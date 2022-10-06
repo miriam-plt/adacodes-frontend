@@ -53,7 +53,7 @@ function Navbar() {
 
         {isLoggedIn && (
           <div className="navbar login">
-            <span className="nav greetings">{`Hello ${username && username.username}!`}</span>
+            <span className="nav greetings">{`Hello ${user && user.username}!`}</span>
             <button className="nav nav-btn" onClick={logOutUser}>Logout</button>
           </div>
         )}
