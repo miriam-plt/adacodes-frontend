@@ -20,7 +20,6 @@ function Login() {
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const requestBody = { email, password };
-        //console.log(`email is: ${email}, password is: ${password}`)
 
         axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, requestBody)
         .then((response) => {

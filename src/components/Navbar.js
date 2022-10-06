@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context"; 
 
 function Navbar() {
-  const { isLoggedIn, username, logOutUser } = useContext(AuthContext);
-  console.log(username)
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  console.log(user)
 
   return (
     <nav className="Navbar">
@@ -42,7 +42,7 @@ function Navbar() {
             <Link to="/service/list" className="navlink btn"> <button>List</button> </Link>
             <Link to="/" className="navlink btn"> <button>Map</button> </Link>
             <button className="navlink btn" onClick={logOutUser}>Logout</button>
-            <span className="navlink greetings">{`Hello ${username && username.username}!`}</span>
+            <span className="navlink greetings">{`Hello ${user && user.user}!`}</span>
           </>
         )}
 

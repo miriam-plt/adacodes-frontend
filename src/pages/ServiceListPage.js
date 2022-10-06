@@ -2,26 +2,26 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import ServiceCard from "../components/ServiceCard";
 import { AuthContext } from "../context/auth.context";
-//useContext
 import { Link } from 'react-router-dom';
 
 function ServiceListPage() {
 
-  const {username} = useContext(AuthContext);
-    const [services, setServices] = useState([]); 
-    const [selectQuery, setSelectQuery] = useState("");
-   console.log(services)
-    const getAllServices = () => { 
-      const storedToken = localStorage.getItem("authToken");
+  const { user } = useContext(AuthContext);
+  console.log(user)
+  const [services, setServices] = useState([]); 
+  const [selectQuery, setSelectQuery] = useState("");
+  //console.log(services)
+  const getAllServices = () => { 
+    const storedToken = localStorage.getItem("authToken");
 
-      axios
-        .get(
-          `${process.env.REACT_APP_API_URL}/api/services`,
-          { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-        .then((response) => setServices(response.data))
-        .catch((error) => console.log(error));
-    };
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/api/services`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
+      .then((response) => setServices(response.data))
+      .catch((error) => console.log(error));
+  };
    
     useEffect(() => { 
       getAllServices();
@@ -42,8 +42,6 @@ function ServiceListPage() {
         if (selectQuery === "pending"){ return services.isApproved === false}
         else {return services.isApproved === true}
     })
-
-
    
     if(services.length === 0){ 
       return <p>Loading...</p>
@@ -59,7 +57,10 @@ function ServiceListPage() {
             <button className="support-btn" value="support" onClick={handleChange}>Support</button>
             <button className="jobs-btn" value="jobs" onClick={handleChange} >Jobs</button>
             <button className="others-btn" value="others" onClick={handleChange}>Others</button>
-            <button className="pending-btn" value="pending" onClick={handleChange}>Pending</button>
+            {user?.isAdmin && (
+              <button className="pending-btn" value="pending" onClick={handleChange}>Pending</button>
+            )}
+            
             <Link to="/">View map</Link>
             
         </div>

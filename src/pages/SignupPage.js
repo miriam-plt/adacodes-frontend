@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Signup(props) {
+function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -36,7 +36,7 @@ function Signup(props) {
             <h1>Please inform your credentials</h1>
             <p>Already have an account yet?</p>
             <Link to={"/login"}> Log in</Link>
-            <label>Username</label>
+            <label>username</label>
             <input
             type="text"
             name="username"

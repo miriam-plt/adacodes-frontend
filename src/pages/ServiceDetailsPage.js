@@ -6,37 +6,39 @@ import { ExternalLink } from 'react-external-link';
  
  
 function ServiceDetails () {
-  const [service, setService] = useState(null); // 1. Define a State variable for the upcoming service
+  const [service, setService] = useState(null);
   const { serviceId } = useParams(); 
   const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate()
 
   //console.log(service)
  
-  const getService = () => { 
-  
-    axios
-      .get(
-        `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`,
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      )
-      .then((response) => {
-        const oneService = response.data;
-        setService(oneService);
-      })
-      .catch((error) => console.log(error));
-  };
+ 
 
-  useEffect(() => { // 4. useEffect will execute once and fetch specific service
+  useEffect(() => { 
+    const getService = () => { 
+  
+      axios
+        .get(
+          `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`,
+          { headers: { Authorization: `Bearer ${storedToken}` } }
+        )
+        .then((response) => {
+          const oneService = response.data;
+          setService(oneService);
+        })
+        .catch((error) => console.log(error));
+    };
+
     getService();
-  }, []);
+   
+  }, [serviceId, storedToken]);
 
   const publishService = (e) => {
     const storedToken = localStorage.getItem("authToken");
     service.isApproved = true;
 
     const requestBody = {...service}
-    //console.log(requestBody)
   
     axios.put(
       `${process.env.REACT_APP_API_URL}/api/services/${serviceId}`, 
@@ -49,7 +51,7 @@ function ServiceDetails () {
   }
   
   
-  if(service === null){ // 3. Display this while we wait for the data from the API to load
+  if(service === null){
     return <p>Loading project...</p>
   }
 
