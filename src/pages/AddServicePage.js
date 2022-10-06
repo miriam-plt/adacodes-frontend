@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import service from "../service";
+import { createService, uploadImage } from "../service";
 
 function AddService() {
     const navigate = useNavigate();
@@ -35,8 +35,7 @@ function AddService() {
         const uploadData = new FormData();
         uploadData.append("imageUrl", e.target.files[0]);
 
-        service
-        .uploadImage(uploadData)
+       uploadImage(uploadData)
         .then(response => {
           // console.log("response is: ", response);
           // response carries "fileUrl" which we can use to update the state
@@ -51,8 +50,7 @@ function AddService() {
         const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time };
         console.log(requestBody);
         
-        service
-             .createService(requestBody)
+            createService(requestBody)
              .then((response) => {
                 setName('');
                 setCategory('');

@@ -28,7 +28,7 @@ const createService = (newService) => {
     .catch(errorHandler);
 };
  
-export default {
+export {
     service,
     getServices,
     uploadImage,

@@ -81,7 +81,7 @@ function EditService() {
           setLongitude(oneService.longitude);
          })
          .catch((error) => console.log(error));
-  }, [])
+  }, [serviceId])
 
 
     return (
