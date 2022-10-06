@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 import background from "../images/background.jpg";
 
-
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -41,11 +40,14 @@ function Login() {
       <div className="AuthContent">
         <img className="BackgroundImg" src={background} alt="background"/>
         
+        <container className="AuthWrapper">
+
+        </container>
         <form className="AuthForm" onSubmit={handleLoginSubmit}>
-            <h1>Login</h1>
+            <h1>Welcome back</h1>
             
-            <div className="InputField">
-              <label className="InputTitle">Email</label>
+            <div>
+              <label>Email</label>
               <input
               className="InputAuth"
               type="email"
@@ -55,8 +57,8 @@ function Login() {
               />
             </div>  
 
-            <div className="InputField">
-              <label className="InputTitle">Password</label>
+            <div>
+              <label>Password</label>
               <input
               className="InputAuth"
               type="password"

@@ -3,6 +3,7 @@ import axios from "axios";
 import ServiceCard from "../components/ServiceCard";
 import { AuthContext } from "../context/auth.context";
 import { Link } from 'react-router-dom';
+import Navbar from "../components/Navbar";
 
 function ServiceListPage() {
 
@@ -49,6 +50,7 @@ function ServiceListPage() {
     
     return ( 
       <div className="ServiceListPage">
+        <Navbar />
         <div>            
             <button className="allServices-btn" value="all" onClick={handleChange} >All Services</button>
             <button className="events-btn" value="events" onClick={handleChange} >Events</button>

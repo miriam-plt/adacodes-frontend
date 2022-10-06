@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../service";
+import Navbar from "../components/Navbar";
 
 function AddService() {
     const navigate = useNavigate();
@@ -75,63 +76,104 @@ function AddService() {
 
     return (
         <div className="AddService">
-            <h3>Submit your suggestion</h3>
+            <Navbar />
+            <h1>Submit your suggestion</h1>
+            <p>*Marked fields are mandatory</p>
 
-            <form onSubmit={handleSubmit}>
-                <label>Name:*</label>
-                <input type="text" name="name" onChange={(e) => handleName(e)}/>
+            <form className="AuthForm" onSubmit={handleSubmit}>
+                <container className="FormGroup">
+                    <h4>GENERAL INFO</h4>
+
+                    <div className="InputField">
+                        <label className="InputTitle">*Name of the service</label>
+                        <input className="Input" type="text" name="name" onChange={(e) => handleName(e)}/>
+                    </div>
+
+                    <div className="InputField">
+                        <label className="InputTitle">*Category</label>
+                        <select className="dropdown" name="category" onChange={(e) => handleCategory(e)}>
+                        <option defaultValue="events"  hidden>Select a category</option>
+                            <option value="events">Events</option>
+                            <option value="groups">Groups</option>
+                            <option value="jobs">Jobs</option>
+                            <option value="learning">Learning</option>
+                            <option value="support">Support</option>
+                            <option value="others">Others</option>
+                        </select>
+
+                        {category.includes("event") && (
+                            <>
+                                <div className="InputField">
+                                    <label className="InputTitle">Please indicate the date of the event</label>
+                                    <input className="Input" type="text" name="date" value={date} onChange={(e) => handleDate(e)}/>
+                                </div>    
+                                        
+                                <div className="InputField">
+                                    <label className="InputTitle">What time is the event taking place?</label>
+                                    <input className="Input" type="text" name="time" value={time} onChange={(e) => handleTime(e)}/>
+                                </div>
+                            </>
+                        )}
+                    </div>    
+
+                    <div className="InputField">
+                        <label className="InputTitle">*Description</label>
+                        <input className="DescriptionInput" type="text" name="description"  onChange={(e) => handleDescription(e)}/>
+                    </div>
+
+                    <div className="ImgUpload">
+                        <label className="InputTitle">Select an image to upload</label>
+                        <input className="Input" type="file" name="imageUrl"  onChange={(e) => handleFileUpload(e)}/>
+                    </div>
+                </container>
                 <br/>
-                <label>Category:*</label>
-                <select name="category" onChange={(e) => handleCategory(e)}>
-                <option defaultValue="events"  hidden>Select a category</option>
-                    <option value="events">Events</option>
-                    <option value="groups">Groups</option>
-                    <option value="jobs">Jobs</option>
-                    <option value="learning">Learning</option>
-                    <option value="support">Support</option>
-                    <option value="others">Others</option>
-                </select>
-                <br/>
-                <label>Street:</label>
-                <input type="text" name="street"  onChange={(e) => handleStreet(e)}/>
-                <br/>
-                <label>Street Nr:</label>
-                <input type="text" name="streetNr"  onChange={(e) => handleStreetNr(e)}/>
-                <br/>
-                <label>Address complement:</label>
-                <input type="text" name="complement"  onChange={(e) => handleComplement(e)}/>
-                <br/>
-                <label>Zip:</label>
-                <input type="text" name="zip" onChange={(e) => handleZip(e)}/>
-                <br/>
-                <label>Website:</label>
-                <input type="text" name="website"  onChange={(e) => handleWebsite(e)}/>
-                <br/>
-                <label>E-mail address:</label>
-                <input type="text" name="email"  onChange={(e) => handleEmail(e)}/>
-                <label>Phone:</label>
-                <input type="text" name="phone"  onChange={(e) => handlePhone(e)}/>
-                <br/>
-                <label>Description:*</label>
-                <input type="text" name="description"  onChange={(e) => handleDescription(e)}/>
-                <br/>
-                <label>Select an image:</label>
-                <input type="file" name="imageUrl"  onChange={(e) => handleFileUpload(e)}/>
-                <br/>
-                <label>In case you're submitting an event please indicate the date:</label>
-                <input type="text" name="date"  onChange={(e) => handleDate(e)}/>
-                <br/>
-                <label>In case you're submitting an event please indicate the time:</label>
-                <input type="text" name="time"  onChange={(e) => handleTime(e)}/>
-                <br/>
-                <button type="submit">Submit</button>
+                <container className="FormGroup">
+                    <h4>ADDRESS</h4>
+
+                    <div className="InputField">
+                        <label className="InputTitle">Street</label>
+                        <input className="Input" type="text" name="street"  onChange={(e) => handleStreet(e)}/>
+                    </div>
+
+                    <div className="InputField">
+                        <label className="InputTitle">Number</label>
+                        <input className="Input" type="text" name="streetNr"  onChange={(e) => handleStreetNr(e)}/> 
+                    </div>
+
+                    <div className="InputField">
+                        <label className="InputTitle">Complement</label>
+                        <input className="Input" type="text" name="complement"  onChange={(e) => handleComplement(e)}/>
+                    </div>
+
+                    <div className="InputField">
+                        <label className="InputTitle">Zip code</label>
+                        <input className="Input" type="text" name="zip" onChange={(e) => handleZip(e)}/>
+                    </div>
+                </container>
+
+                <container className="FormGroup">
+                    <h4>CONTACTS</h4>
+                    <div className="InputField">
+                        <label className="InputTitle">Website</label>
+                        <input className="Input" type="text" name="website"  onChange={(e) => handleWebsite(e)}/>
+                    </div>
+
+                    <div className="InputField">
+                        <label className="InputTitle">E-mail</label>
+                        <input className="Input" type="text" name="email"  onChange={(e) => handleEmail(e)}/>
+                    </div>
+
+                    <div className="InputField">
+                        <label className="InputTitle">Phone</label>
+                        <input className="Input" type="text" name="phone"  onChange={(e) => handlePhone(e)}/>
+                    </div>
+                </container>
+      
+                <button className="SaveBtn" type="submit">Submit</button>
             </form>
-            <p>All fields marked with an asterisk are mandatory.</p>
+        
         </div>
     )
 }
-
-   
-
 
 export default AddService;
