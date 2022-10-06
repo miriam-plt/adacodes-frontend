@@ -43,23 +43,23 @@ const MapView = () => {
   return (
     <div className="Map">
         <div>            
-          <button className="allServices-btn" value="all" onClick={handleChange} >All Services</button>
-          <button className="events-btn" value="events" onClick={handleChange} >Events</button>
-          <button className="groups-btn" value="groups" onClick={handleChange} >Groups</button>
-          <button className="learning-btn" value="learning" onClick={handleChange} >Learning</button>
-          <button className="support-btn" value="support" onClick={handleChange}>Support</button>
-          <button className="jobs-btn" value="jobs" onClick={handleChange} >Jobs</button>
-          <button className="others-btn" value="others" onClick={handleChange}>Others</button>
+          <button className="map-btn allServices-btn" value="all" onClick={handleChange} >All Services</button>
+          <button className="map-btn events-btn" value="events" onClick={handleChange} >Events</button>
+          <button className="map-btn groups-btn" value="groups" onClick={handleChange} >Groups</button>
+          <button className="map-btn learning-btn" value="learning" onClick={handleChange} >Learning</button>
+          <button className="map-btn support-btn" value="support" onClick={handleChange}>Support</button>
+          <button className="map-btn jobs-btn" value="jobs" onClick={handleChange} >Jobs</button>
+          <button className="map-btn others-btn" value="others" onClick={handleChange}>Others</button>
         </div>
     
         <Map
             initialViewState={{
             longitude: 13.3888599,
             latitude: 52.5170365,
-            zoom: 10
+            zoom: 11
             }}
             style={{width: '100vw', height: '70vh'}}
-            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapStyle="mapbox://styles/mapbox/light-v10"
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         >
 
@@ -77,7 +77,10 @@ const MapView = () => {
                         e.originalEvent.stopPropagation();
                         setSelectedService(service);
                     }}    
-                    >
+                    > 
+                    
+                    <img className='map-marker' src="https://www.pngkey.com/png/full/163-1637155_light-blue-circle-png-circle.png" width="20px" alt="marker" />
+                    
 
                 </Marker>
             ))}

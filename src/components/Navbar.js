@@ -8,48 +8,58 @@ function Navbar() {
 
   return (
     <nav className="Navbar">
-      <ul>
+      <ul className="nav container">
         
-        <NavLink to="/" className="home-btn">
-          <img className="logo" src={"https://static.vecteezy.com/system/resources/previews/001/209/770/non_2x/square-png.png"} alt="logo" width="60px" />
+      <div className="navbar logo">
+        <NavLink to="/" >
+          <img className="logo" src={"https://static.vecteezy.com/system/resources/previews/001/209/770/non_2x/square-png.png"} alt="logo" width="30px" />
         </NavLink>
+      </div>
         
+      <div className="navbar links">
+        <Link to="/service/list" className="navlink"> List </Link>
+        <Link to="/" className="navlink"> Map </Link>
+
         <NavLink 
           to="/about" 
           className= {({ isActive }) => isActive ? "navlink selected" : "navlink unselected"}>
-          About us
+          About
         </NavLink>
 
+      {!isLoggedIn && (
+        <NavLink 
+          to="/login" 
+          className={({ isActive }) => isActive ? "navlink selected" : "navlink unselected"}>
+          Share
+        </NavLink>
+      )}
+
+      {isLoggedIn && (
+        <NavLink 
+          to="/service/add" 
+          className={({ isActive }) => isActive ? "navlink selected" : "navlink unselected"}>
+          Share
+        </NavLink>
+      )}
+      </div>
+
+      <div className="navbar auth">
         {!isLoggedIn && (
-          <>
-            <NavLink 
-              to="/login" 
-              className={({ isActive }) => isActive ? "navlink selected" : "navlink unselected"}>
-              Share your suggestion
-            </NavLink>
-            <Link to="/signup" className="navlink btn"> <button>Sign Up</button> </Link>
-            <Link to="/login" className="navlink btn"> <button>Login</button> </Link>
-          </>
+          <div className="navbar login">
+            <Link to="/login" className="nav nav-btn"> Login </Link>
+            <Link to="/signup"> <button className="nav-btn">Sign Up</button> </Link>  
+          </div>
         )}
 
         {isLoggedIn && (
-          <>
-            <NavLink 
-              to="/service/add" 
-              className={({ isActive }) => isActive ? "selected" : "unselected"}>
-              Share your suggestion
-            </NavLink>
-            <Link to="/service/list" className="navlink btn"> <button>List</button> </Link>
-            <Link to="/" className="navlink btn"> <button>Map</button> </Link>
-            <button className="navlink btn" onClick={logOutUser}>Logout</button>
-            <span className="navlink greetings">{`Hello ${username && username.username}!`}</span>
-          </>
+          <div className="navbar login">
+            <span className="nav greetings">{`Hello ${username && username.username}!`}</span>
+            <button className="nav nav-btn" onClick={logOutUser}>Logout</button>
+          </div>
         )}
+        </div>
 
-
-
-      </ul>
-      
+      </ul>     
     </nav>
   );
 }
