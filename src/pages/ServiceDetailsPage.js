@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import ServiceMap from "../components/ServiceMap";
 import { ExternalLink } from 'react-external-link';
+import { AuthContext } from "../context/auth.context";
  
  
 function ServiceDetails () {
@@ -10,9 +11,7 @@ function ServiceDetails () {
   const { serviceId } = useParams(); 
   const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate()
-
-  //console.log(service)
- 
+  const { user } = useContext(AuthContext);
  
 
   useEffect(() => { 
@@ -109,15 +108,23 @@ function ServiceDetails () {
         </>
       )}
       
+      {user?.isAdmin && (
+        <div className="ActionButtons">
+          <Link to={`/service/edit/${serviceId}`}>
+            <button>Edit Submission</button>
+          </Link>
+          {!service.isApproved && (
+            <button onClick={publishService}>Publish</button>
+          )}
+        </div>      
+      )}
+      
+      
+        
+        
+      
 
       
-      <div className="ActionButtons">
-        <Link to={`/service/edit/${serviceId}`}>
-          <button>Edit Submission</button>
-        </Link>
-      {<button onClick={publishService}>Publish</button>}
-
-      </div>
       
  
     </div>

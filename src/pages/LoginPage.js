@@ -41,27 +41,36 @@ function Login() {
         
         <form className="AuthForm" onSubmit={handleLoginSubmit}>
             <h1>Login</h1>
-            <p>Don't have an account yet?</p>
-            <Link to={"/signup"}> Sign Up</Link>
-            <label>Email</label>
-            <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-            />
+            
+            <div className="InputField">
+              <label className="InputTitle">Email</label>
+              <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+              />
+            </div>  
 
-            <label>Password</label>
-            <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-            />
-            <button type="submit">Enter</button>
+            <div className="InputField">
+              <label className="InputTitle">Password</label>
+              <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+              />
+
+              <div className="AuthPlaceholderImg"></div>
+            </div>
+            { errorMessage && <p className="AuthErrorMsg">{errorMessage}</p> }
+            <button className="AuthButton" type="submit">Enter</button>
+
+            <p className="CallToAction">Don't have an account yet? <Link className="CallToAction" to={"/signup"}> Sign Up</Link></p>
             
         </form>
-        { errorMessage && <p className="error-message">{errorMessage}</p> }
+        
+       
       </div>
     );
   }
