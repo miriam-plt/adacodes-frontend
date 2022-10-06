@@ -4,7 +4,6 @@ import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  console.log(user)
 
   return (
     <nav className="Navbar">
