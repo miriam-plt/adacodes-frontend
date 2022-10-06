@@ -1,21 +1,214 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css2?family=K2D&family=Roboto&display=swap');
+
 .App {
   text-align: center;
+}
+
+body {
+  font-family: 'Poppins';
+  margin: 0;
 }
 
 /* NAVBAR */
 
 .Navbar {
-  display: flex;
-  justify-content: space-between;
+  padding-top: 1px;
+  padding-bottom: 1px;
   background-color: antiquewhite;
+  list-style: none;
+  height: 70px;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greetings {
+  margin-right: 40px;
+  font-weight: bold;
+}
+
+.nav {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+a.nav.nav-btn {
+  margin-right: 40px;
+}
+
+button.nav-btn {
+  padding: 10px 30px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+
+.navlink {
+  margin: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  position: relative;
+}
+
+.navlink:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 43px;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 10px;
+}
+
+.navlink:after, .navlink:before {
+  transition: all .5s;
+}
+
+.navlink:hover {
+  color: #555;
+}
+
+.navlink:hover:after {
+  width: 100%;
+}
+
+.auth {
+  margin-right: 40px;
+}
 
 /* HOME */
 /* Header */
+
+.header {
+  background-image: url("https://images.unsplash.com/photo-1633856384682-cff3b9f06682?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2048&q=80");
+  background-size: cover;
+  /*background-position: center;*/
+  opacity: 0.9;
+  filter: brightness();
+  height: 95vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: 'K2D', sans-serif;
+  font-size: 80px;
+  color: #000; 
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+}
+
+.header h5 {
+  width: 600px;
+  font-size: 16px;
+  font-weight: 100;
+  margin-top: 0;
+}
+
+/* HOME */
 /* Buttons */
+
+.map-btn {
+  padding: 10px 30px;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  margin-bottom: 100px;
+  margin-top: 100px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.allServices-btn {
+  background-color: aqua;
+}
+
+.events-btn {
+  background-color: rgb(6, 186, 186);
+}
+
+.groups-btn {
+  background-color: rgb(7, 129, 129);
+}
+
+.learning-btn {
+  background-color: rgb(40, 134, 134);
+}
+
+.support-btn {
+  background-color: rgb(64, 106, 106);
+}
+
+.jobs-btn {
+  background-color: rgb(97, 210, 210);
+}
+
+.map-btn:hover {
+  background: #fff;
+  color: #6d6c65;
+  transition: 0.3s ease background;
+}
+
+/* HOME */
 /* Map */
-/* Section (with submission) */
+
+.map-marker {
+  border: none;
+}
+
+/* HOME */
+/* Section */
+
+.container-submit {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 600px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: bisque;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 30px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+
+
+
+
+
+
+
+/* SIGN IN */
+/* LOGIN */
+
 
 /* ABOUT */
 
@@ -25,3 +218,4 @@
 /* SERVICE DETAILS PAGE */
 
 /* THANK YOU PAGE */
+/* ERROR */
