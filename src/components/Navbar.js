@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context"; 
 
 function Navbar() {
-  const { isLoggedIn, username, logOutUser } = useContext(AuthContext);
-  console.log(username)
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  console.log(user)
 
   return (
     <nav className="Navbar">

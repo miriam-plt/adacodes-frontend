@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
 .selected {
   text-shadow: 1px 0px 3px white;
   color: black;
@@ -41,3 +45,100 @@ code {
   margin: 12px;
   border-radius: 4px;
   }
+
+  .ServiceDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .MapWrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .ImgPlaceholder {
+    background-color: cornflowerblue;
+    height: 150px;
+    width: 150px;
+    z-index: 10;
+    position: absolute;
+    align-content: center;
+    bottom: -72px;
+  }
+
+  .ServiceContent {
+    max-width: 60vw;
+    margin-top: 80px;
+  }
+
+  .ActionButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 200px;
+  }
+
+  .AuthContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .AuthForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .CallToAction {
+    font-size: 0.9em;
+    margin-top: 2em;
+  }
+
+  .InputField {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 250px;
+    margin-bottom: 20px;
+  }
+
+  .InputTitle {
+    font-size: 0.8em;
+    font-weight: 500;
+    margin: 3px 0 3px 0;
+  }
+
+  .InputAuth {
+    height: 26px;
+    width: 250px;
+    padding: 0;
+  }
+
+  .AuthErrorMsg {
+    font-size: 0.8em;
+    color: rgb(251, 71, 68);
+    margin: 0;
+  }
+
+  .AuthButton {
+    height: 35px;
+    margin-top: 20px;
+    width: 250px;
+  }
+
+  .AuthPlaceholderImg {
+    background-color: cadetblue;
+    height: 100px;
+    width: 70px;
+  }
+
+  .BackgroundImg {
+    width: 60vw;
+    height: 100vh;
+  }
+
+ 

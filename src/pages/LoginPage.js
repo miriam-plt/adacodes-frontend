@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
+import background from "../images/background.jpg";
 
 
 function Login() {
@@ -20,7 +21,6 @@ function Login() {
     const handleLoginSubmit = (e) => {
         e.preventDefault();
         const requestBody = { email, password };
-        //console.log(`email is: ${email}, password is: ${password}`)
 
         axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, requestBody)
         .then((response) => {
@@ -39,30 +39,39 @@ function Login() {
 
     return (
       <div className="AuthContent">
+        <img className="BackgroundImg" src={background} alt="background"/>
         
         <form className="AuthForm" onSubmit={handleLoginSubmit}>
             <h1>Login</h1>
-            <p>Don't have an account yet?</p>
-            <Link to={"/signup"}> Sign Up</Link>
-            <label>Email</label>
-            <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-            />
+            
+            <div className="InputField">
+              <label className="InputTitle">Email</label>
+              <input
+              className="InputAuth"
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+              />
+            </div>  
 
-            <label>Password</label>
-            <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-            />
-            <button type="submit">Enter</button>
+            <div className="InputField">
+              <label className="InputTitle">Password</label>
+              <input
+              className="InputAuth"
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+              />
+            </div>
+            { errorMessage && <p className="AuthErrorMsg">{errorMessage}</p> }
+            <button className="AuthButton" type="submit">Enter</button>
+
+            <p className="CallToAction">Don't have an account yet? <Link className="CallToAction" to={"/signup"}> Sign Up</Link></p>
             
         </form>
-        { errorMessage && <p className="error-message">{errorMessage}</p> }
+       
       </div>
     );
   }

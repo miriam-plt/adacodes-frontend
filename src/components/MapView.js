@@ -2,6 +2,7 @@
 import  Map, { Marker, Popup, FullscreenControl, NavigationControl } from 'react-map-gl';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { ExternalLink } from 'react-external-link';
 import axios from "axios";
 
 const MapView = () => {
@@ -43,6 +44,7 @@ const MapView = () => {
   return (
     <div className="Map">
         <div>            
+
           <button className="map-btn allServices-btn" value="all" onClick={handleChange} >All Services</button>
           <button className="map-btn events-btn" value="events" onClick={handleChange} >Events</button>
           <button className="map-btn groups-btn" value="groups" onClick={handleChange} >Groups</button>
@@ -94,12 +96,35 @@ const MapView = () => {
                 >
                     <div>
                         <h3>{selectedService.name}</h3>
-                        <p>{selectedService.street} {selectedService.streetNr}</p>
-                        <p>{selectedService.complement}</p>
-                        <p>{selectedService.email}</p>
-                        <p>{selectedService.website}</p>
-                        <p>{selectedService.phone}</p>
-                        <p>Berlin {selectedService.zip}</p>
+                        {selectedService.date !== "" && (
+                            <p>Date: {selectedService.date}</p>
+                        )}
+                        {selectedService.time !== "" && (
+                            <p>Time: {selectedService.time}</p>
+                        )}
+                        <p>
+                            {selectedService.street !== "" && selectedService.street} 
+                            {selectedService.streetNr !== "" && selectedService.streetNr}
+                        </p>
+                        {selectedService.complement !== "" && (
+                            <p>{selectedService.complement}</p>
+                        )}
+                        {selectedService.zip !== "" && (
+                            <p>Berlin {selectedService.zip}</p>
+                        )}
+
+                        {selectedService.website !== "" && (
+                            <ExternalLink href={`${selectedService.website}`}>
+                                <span>{`${selectedService.website}`}</span>
+                            </ExternalLink>
+                        )}
+                        {selectedService.email !== "" && (
+                            <p>{selectedService.email}</p>
+                        )}
+                        {selectedService.phone !== "" && (
+                            <p>Phone: {selectedService.phone}</p>
+                        )}
+                        
                         <Link to={`/service/${selectedService._id}`}>View details</Link>
                     </div>
                 </Popup>

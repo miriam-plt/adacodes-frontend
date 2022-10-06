@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import service from "../service";
 
@@ -51,7 +50,7 @@ function AddService() {
 
         const requestBody = { name, category, street, streetNr, complement, zip, website, email, phone, description, imageUrl, date, time };
         console.log(requestBody);
-        const storedToken = localStorage.getItem('authToken');
+        
         service
              .createService(requestBody)
              .then((response) => {
@@ -81,6 +80,7 @@ function AddService() {
             <form onSubmit={handleSubmit}>
                 <label>Name:*</label>
                 <input type="text" name="name" onChange={(e) => handleName(e)}/>
+                <br/>
                 <label>Category:*</label>
                 <select name="category" onChange={(e) => handleCategory(e)}>
                 <option defaultValue="events"  hidden>Select a category</option>
@@ -91,28 +91,39 @@ function AddService() {
                     <option value="support">Support</option>
                     <option value="others">Others</option>
                 </select>
+                <br/>
                 <label>Street:</label>
                 <input type="text" name="street"  onChange={(e) => handleStreet(e)}/>
+                <br/>
                 <label>Street Nr:</label>
                 <input type="text" name="streetNr"  onChange={(e) => handleStreetNr(e)}/>
+                <br/>
                 <label>Address complement:</label>
                 <input type="text" name="complement"  onChange={(e) => handleComplement(e)}/>
+                <br/>
                 <label>Zip:</label>
                 <input type="text" name="zip" onChange={(e) => handleZip(e)}/>
+                <br/>
                 <label>Website:</label>
                 <input type="text" name="website"  onChange={(e) => handleWebsite(e)}/>
+                <br/>
                 <label>E-mail address:</label>
                 <input type="text" name="email"  onChange={(e) => handleEmail(e)}/>
                 <label>Phone:</label>
                 <input type="text" name="phone"  onChange={(e) => handlePhone(e)}/>
+                <br/>
                 <label>Description:*</label>
                 <input type="text" name="description"  onChange={(e) => handleDescription(e)}/>
+                <br/>
                 <label>Select an image:</label>
                 <input type="file" name="imageUrl"  onChange={(e) => handleFileUpload(e)}/>
+                <br/>
                 <label>In case you're submitting an event please indicate the date:</label>
                 <input type="text" name="date"  onChange={(e) => handleDate(e)}/>
+                <br/>
                 <label>In case you're submitting an event please indicate the time:</label>
                 <input type="text" name="time"  onChange={(e) => handleTime(e)}/>
+                <br/>
                 <button type="submit">Submit</button>
             </form>
             <p>All fields marked with an asterisk are mandatory.</p>
