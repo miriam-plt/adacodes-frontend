@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
+import background from "../images/background.jpg";
 
 
 function Login() {
@@ -38,6 +39,7 @@ function Login() {
 
     return (
       <div className="AuthContent">
+        <img className="BackgroundImg" src={background} alt="background"/>
         
         <form className="AuthForm" onSubmit={handleLoginSubmit}>
             <h1>Login</h1>
@@ -45,6 +47,7 @@ function Login() {
             <div className="InputField">
               <label className="InputTitle">Email</label>
               <input
+              className="InputAuth"
               type="email"
               name="email"
               value={email}
@@ -55,13 +58,12 @@ function Login() {
             <div className="InputField">
               <label className="InputTitle">Password</label>
               <input
+              className="InputAuth"
               type="password"
               name="password"
               value={password}
               onChange={handlePassword}
               />
-
-              <div className="AuthPlaceholderImg"></div>
             </div>
             { errorMessage && <p className="AuthErrorMsg">{errorMessage}</p> }
             <button className="AuthButton" type="submit">Enter</button>
@@ -69,7 +71,6 @@ function Login() {
             <p className="CallToAction">Don't have an account yet? <Link className="CallToAction" to={"/signup"}> Sign Up</Link></p>
             
         </form>
-        
        
       </div>
     );

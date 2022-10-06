@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
 .selected {
   text-shadow: 1px 0px 3px white;
   color: black;
@@ -76,37 +80,42 @@ code {
   }
 
   .AuthContent {
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
   }
+
   .AuthForm {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   .CallToAction {
     font-size: 0.9em;
+    margin-top: 2em;
   }
 
   .InputField {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 250px;
     margin-bottom: 20px;
   }
 
   .InputTitle {
     font-size: 0.8em;
     font-weight: 500;
-    margin: 5px 0 5px 0;
+    margin: 3px 0 3px 0;
   }
 
-  input {
+  .InputAuth {
     height: 26px;
-    width: 18em;
+    width: 250px;
+    padding: 0;
   }
 
   .AuthErrorMsg {
@@ -115,11 +124,21 @@ code {
     margin: 0;
   }
 
-  .AuthPlaceholderImg {
-    background-color: cadetblue;
-  }
-
   .AuthButton {
     height: 35px;
     margin-top: 20px;
+    width: 250px;
   }
+
+  .AuthPlaceholderImg {
+    background-color: cadetblue;
+    height: 100px;
+    width: 70px;
+  }
+
+  .BackgroundImg {
+    width: 60vw;
+    height: 100vh;
+  }
+
+ 
