@@ -15,10 +15,16 @@ body {
 .Navbar {
   padding-top: 1px;
   padding-bottom: 1px;
-  background-color: antiquewhite;
+  background-color: #e9e9ea;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: visible;
   list-style: none;
-  height: 70px;
+  height: 72px;
+  z-index: 100;
+  width: 100vw;
+  position: absolute;
 }
+
 
 .container {
   display: flex;
@@ -39,6 +45,7 @@ body {
 
 a.nav.nav-btn {
   margin-right: 40px;
+  font-size: 13px;
 }
 
 button.nav-btn {
@@ -47,6 +54,7 @@ button.nav-btn {
   color: white;
   border: none;
   border-radius: 9px;
+  font-size: 13px;
 }
 
 .navlink {
@@ -91,10 +99,9 @@ button.nav-btn {
 /* Header */
 
 .header {
-  background-image: url("https://images.unsplash.com/photo-1633856384682-cff3b9f06682?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2048&q=80");
+  background-image: url("https://64.media.tumblr.com/8055c71746f3e63377b070388522571b/eef155f6ffd195fa-b1/s2048x3072/a7001904cdd4890f2621c9e712fc3bfbf385b2a5.jpg");
   background-size: cover;
-  /*background-position: center;*/
-  opacity: 0.9;
+  background-position: center;
   filter: brightness();
   height: 95vh;
   width: 100vw;
@@ -106,17 +113,17 @@ button.nav-btn {
 
 .title {
   font-family: 'K2D', sans-serif;
-  font-size: 80px;
-  color: #000; 
-  color: rgba(0, 0, 0, 0.5);
-  margin-bottom: 0;
+  font-size: 100px;
+  color: rgb(39, 38, 38); 
+  margin-bottom: 0; 
 }
 
 .header h5 {
   width: 600px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 100;
   margin-top: 0;
+  padding-bottom: 100px;
 }
 
 /* HOME */
@@ -127,37 +134,107 @@ button.nav-btn {
   color: white;
   border: none;
   border-radius: 9px;
-  margin-bottom: 100px;
-  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-top: 30px;
   margin-left: 5px;
   margin-right: 5px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .allServices-btn {
-  background-color: aqua;
+  border: 3px solid #4da06f;
+  color: #4da06f;
+}
+
+.allServices-btn:hover {
+  background-color: #76bc66;
+  transition: 0.3s ease background;
+  color: rgb(39, 38, 38);
 }
 
 .events-btn {
-  background-color: rgb(6, 186, 186);
+  border: 3px solid #4d4deb;
+  color: #4d4deb;
+}
+
+.events-btn:hover {
+  background-color: #4d4deb;
+  transition: 0.3s ease background;
+  color: rgb(39, 38, 38);
 }
 
 .groups-btn {
-  background-color: rgb(7, 129, 129);
+  border: 3px solid #c662fc;
+  color: #c662fc;
+}
+
+.groups-btn:hover {
+  background-color: #c662fc;
+  transition: 0.3s ease background;
+  color: rgb(39, 38, 38);
 }
 
 .learning-btn {
-  background-color: rgb(40, 134, 134);
+  border: 3px solid #875bf7;
+  color: #875bf7;
+}
+
+.learning-btn:hover {
+  background-color: #875bf7;
+  transition: 0.3s ease background;
+  color: rgb(39, 38, 38);
 }
 
 .support-btn {
-  background-color: rgb(64, 106, 106);
+  border: 3px solid #7d9874;
+  color: #7d9874;
+}
+
+.support-btn:hover {
+  background-color: #7d9874;
+  transition: 0.3s ease background;
+  color: rgb(39, 38, 38);
 }
 
 .jobs-btn {
-  background-color: rgb(97, 210, 210);
+  border: 3px solid #ed8515;
+  color: #ed8515;
 }
 
-.map-btn:hover {
+.jobs-btn:hover {
+  background-color: #ed8515;
+  transition: 0.3s ease background;
+  color: rgb(39, 38, 38);
+}
+
+.others-btn {
+  border: 3px solid #2b8cb6;
+  color: #2b8cb6;
+}
+
+.others-btn:hover {
+  background-color: #2b8cb6;
+  transition: 0.3s ease background;
+  color: rgb(39, 38, 38);
+}
+
+.pending-btn {
+  border: 3px solid #ee5058;
+  color: #ee5058;
+}
+
+.pending-btn:hover {
+  background-color: #ee5058;
+  transition: 0.3s ease background;
+  color: rgb(39, 38, 38);
+}
+
+.list-btn {
+  margin-top: 150px;
+}
+
+.btn:hover {
   background: #fff;
   color: #6d6c65;
   transition: 0.3s ease background;
@@ -165,6 +242,20 @@ button.nav-btn {
 
 /* HOME */
 /* Map */
+
+.map-services {
+  margin-top: 100px;
+  margin-bottom: 0;
+  font-family: 'K2D', sans-serif;
+  font-size: 31px;
+}
+
+.map-description {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 100;
+}
 
 .map-marker {
   border: none;
@@ -179,11 +270,14 @@ button.nav-btn {
   width: 600px;
   padding: 40px;
   border-radius: 10px;
-  background-color: bisque;
+  background-color: #b3c6fb;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  background-image: url("https://64.media.tumblr.com/8055c71746f3e63377b070388522571b/eef155f6ffd195fa-b1/s2048x3072/a7001904cdd4890f2621c9e712fc3bfbf385b2a5.jpg");
+  background-position: center;
+  background-position-x: 500px;
 }
 
 .submit {
@@ -200,22 +294,72 @@ button.nav-btn {
   border-radius: 9px;
 }
 
+.send-suggestion {
+  margin-bottom: 0;
+}
 
-
-
-
-
-
-/* SIGN IN */
-/* LOGIN */
+.share-suggestion {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 100;
+  width: 300px;
+}
 
 
 /* ABOUT */
 
-/* ADD FORM */
-/* EDIT FORM */
+.about-title {
+  margin-top: 100px;
+  font-family: 'K2D', sans-serif;
+}
+
+.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mission {
+  width: 500px;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 17px;
+}
+
+.mission-detail {
+  width: 500px;
+  margin-right: 40px;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 100px;
+}
+
+.about-pic {
+  margin-left: 40px;
+}
 
 /* SERVICE DETAILS PAGE */
+
+.service-pic {
+    height: 150px;
+    width: 150px;
+    z-index: 10;
+    position: absolute;
+    align-content: center;
+    height: 150px;
+    width: 150px;
+    z-index: 10;
+    position: absolute;
+    align-content: center;
+    bottom: 410px;
+    object-fit: cover;
+}
 
 /* THANK YOU PAGE */
 /* ERROR */

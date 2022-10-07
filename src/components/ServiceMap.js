@@ -2,7 +2,7 @@ import  Map, { Marker, FullscreenControl, NavigationControl } from 'react-map-gl
 
 
 function ServiceMap (props) {
-
+console.log(props)
     return (
         <div className="MapWrapper">
             <Map 
@@ -27,7 +27,7 @@ function ServiceMap (props) {
             </Marker>
        
         </Map> 
-        <div className="ImgPlaceholder"></div>
+        
         </div>  
       );
     }

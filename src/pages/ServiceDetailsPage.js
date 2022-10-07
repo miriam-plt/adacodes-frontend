@@ -65,6 +65,7 @@ function ServiceDetails () {
         
         {service && (
           <>
+
           {service.imageUrl &&(
             <>
             <img src={service.imageUrl} alt="service" width="400px"></img>
@@ -110,6 +111,8 @@ function ServiceDetails () {
                 <p>📞 {service.phone}</p>
               )}
             </div>
+
+          <img className="service-pic" src={service.imageUrl} alt="service-pic" width="400px"></img>
           </>
         )}
         

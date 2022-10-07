@@ -19,8 +19,6 @@ a {
 .selected {
   text-shadow: 1px 0px 3px white;
   color: black;
-  background-color: antiquewhite;
-  border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
   padding-bottom: 5px;
 }
 
@@ -52,20 +50,12 @@ a {
   align-items: center;
 }
 
-.MapWrapper {
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-.ImgPlaceholder {
-  background-color: cornflowerblue;
-  height: 150px;
-  width: 150px;
-  z-index: 10;
-  position: absolute;
-  align-content: center;
-  bottom: -72px;
-}
+  .MapWrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
 
 .ServiceContent {
   max-width: 60vw;
@@ -220,6 +210,7 @@ a {
   margin-top: 25px !important;
   height: 55px;
 }
+
 
 .ImgUpload input {
   margin-top: 10px !important;

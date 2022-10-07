@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import background from "../images/background.jpg";
+import background2 from "../images/backgound2.jpg";
 
 function Signup() {
     const [email, setEmail] = useState("");
@@ -30,8 +30,10 @@ function Signup() {
     };
 
     return (
-      <div className="AuthenticationContent">
-        <img className="BackgroundImg" src={background} alt="background"/>
+
+      <div className="AuthContent">
+        <img className="BackgroundImg" src={background2} alt="background"/>
+
         
         <form className="Authentication" onSubmit={handleLoginSubmit}>
             <h1>Create an account</h1>
