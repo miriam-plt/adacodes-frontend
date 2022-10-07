@@ -135,9 +135,11 @@ a {
   width: 70px;
 }
 
+
 .BackgroundImg {
   width: 60vw;
   height: 100vh;
+  object-fit: cover;
 }
 
 .dropdown {
@@ -304,11 +306,7 @@ a {
   margin-right: 0;
   width: fit-content !important;
 }
-.header h5 {
-  margin-left: 0;
-  margin-right: 0;
-  width: fit-content !important;
-}
+
 .bannerDescription {
   display: flex;
   flex-direction: row;
@@ -316,7 +314,7 @@ a {
 }
  .ServiceListPage {
   color:#ffffff;
-  background-color: rgb(39, 38, 38);
+  background-color: rgb(231, 228, 228);
   display: flex;
   flex-direction: column;
   align-items: center;

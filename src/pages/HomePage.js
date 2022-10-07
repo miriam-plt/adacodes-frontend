@@ -11,9 +11,13 @@ function HomePage() {
         <h1 className="title">adacodes</h1>
 
         <h5>Essential resources to help you focus on your personal and professional development in the tech sector. For a <del>digital</del> world without discrimination.</h5>
+        
+        <div className="anchor">
         <HashLink smooth to="#map">
-          View Map
+          <p>View Map</p>
+          <p className="hand-down">👇</p>
         </HashLink>
+        </div>
 
       </div>
 
