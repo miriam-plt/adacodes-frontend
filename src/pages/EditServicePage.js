@@ -84,8 +84,11 @@ function EditService() {
 
 
     return (
+      <div>
+      <Navbar />
+      
       <div className="editService">
-        <Navbar />
+        
         <h1>Edit Service</h1>
         <p>*Marked fields are mandatory</p>
         <form className="ServiceForm" onSubmit={handleSubmit}>
@@ -201,6 +204,7 @@ function EditService() {
            
         <button className="DeleteBtn" onClick={deleteService}>Delete Service</button>
       
+      </div>
       </div>
     );
   }

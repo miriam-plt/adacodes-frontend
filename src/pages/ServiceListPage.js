@@ -66,7 +66,7 @@ function ServiceListPage() {
               <button className="map-btn list-btn pending-btn" value="pending" onClick={handleChange}>Pending</button>
             )}
             
-            <Link to="/">View map</Link>
+            <Link to="/" className="view">View map</Link>
             
         </div>
 

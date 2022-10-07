@@ -67,6 +67,7 @@ a {
   flex-direction: row;
   justify-content: space-around;
   width: 200px;
+  margin-bottom: 50px;
 }
 
 .AuthContent {
@@ -180,6 +181,7 @@ a {
   padding-left: 3px;
   padding-right: 3px;
   background-color: white;  
+  margin-bottom: 50px;
 }
 
 .DeleteBtn {
