@@ -118,7 +118,7 @@ const MapView = () => {
 
                         {selectedService.website !== "" && (
                             <ExternalLink href={`${selectedService.website}`}>
-                                <span>{`${selectedService.website}`}</span>
+                                <p><span>{`${selectedService.website}`}</span></p>
                             </ExternalLink>
                         )}
                         {selectedService.email !== "" && (

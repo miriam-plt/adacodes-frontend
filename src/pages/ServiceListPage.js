@@ -78,7 +78,9 @@ function ServiceListPage() {
 
           {filteredServices.map((service) => {
                 return (
-              <ServiceCard key={service._id} _id={service._id} name={service.name} description={service.description} />
+              <div className="ServiceCardWrapper">
+                <ServiceCard key={service._id} _id={service._id} name={service.name} description={service.description} />
+              </div>
             )}
           )}     
          

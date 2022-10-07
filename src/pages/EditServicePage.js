@@ -91,7 +91,7 @@ function EditService() {
         <form className="ServiceForm" onSubmit={handleSubmit}>
 
           <container className="FormGroup">
-            <h4>GENERAL INFO</h4>
+            <h5>GENERAL INFO</h5>
 
             <div className="InputField">
               <label>*Name of the service</label>
@@ -138,7 +138,7 @@ function EditService() {
           </container>     
           
           <container className="FormGroup">
-            <h4>ADDRESS</h4>
+            <h5>ADDRESS</h5>
             <container className="Address">
               <div className="InputField">
                 <label>Street</label>
@@ -175,7 +175,7 @@ function EditService() {
           </container> 
           <br/>
           <container className="FormGroup">
-            <h4>CONTACTS</h4>
+            <h5>CONTACTS</h5>
             <div className="InputField">
               <label>Website</label>
               <input className="Input" type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)}/>

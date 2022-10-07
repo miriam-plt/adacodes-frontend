@@ -72,21 +72,23 @@ function ServiceDetails () {
           )}
             <div className="ServiceContent">
               <h1>{service.name}</h1>
-              <Link to="/service/list">
+              <Link className="linkBack" to="/service/list">
                 👈 Back to services
               </Link>
-              <h4>
-                <p>
-                  {service.street !== "" && service.street} 
-                  {service.streetNr !== "" && ` ${service.streetNr}`}
-                </p>
-                {service.complement !== "" && (
-                  <p>{service.complement}</p>
-                )}
-                {service.zip !== "" && (
-                  <p>Berlin {service.zip}</p>
-                )}
-              </h4>
+              <h5>
+                <div className="GroupedInfo">
+                  <p>
+                    {service.street !== "" && service.street} 
+                    {service.streetNr !== "" && ` ${service.streetNr}`}
+                  </p>
+                  {service.complement !== "" && (
+                    <p>{service.complement}</p>
+                  )}
+                  {service.zip !== "" && (
+                    <p>Berlin {service.zip}</p>
+                  )}
+                </div>
+              </h5>
               {service.description !== "" && (
                 <p>{service.description}</p>
               )}
@@ -114,7 +116,7 @@ function ServiceDetails () {
         {user?.isAdmin && (
           <div className="ActionButtons">
             <Link to={`/service/edit/${serviceId}`}>
-              <button>Edit Submission</button>
+              <button className="CancelBtn">Edit Submission</button>
             </Link>
             {!service.isApproved && (
               <button onClick={publishService}>Publish</button>

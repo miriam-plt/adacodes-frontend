@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function ServiceCard ( { name, category, street, streetNr, complement, zip, website, email, phone, description, picture, date, time, _id, isApproved } ) {
 
     return (
-        <div className="ServiceCard card">
+        <div className="serviceCard">
           <Link to={`/service/${_id}`}>
             <h2>{name}</h2>
           </Link>

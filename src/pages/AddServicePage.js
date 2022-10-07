@@ -81,7 +81,7 @@ function AddService() {
 
             <form className="ServiceForm" onSubmit={handleSubmit}>
                 <container className="FormGroup">
-                    <h4>GENERAL INFO</h4>
+                    <h5>GENERAL INFO</h5>
 
                     <div>
                         <label>*Name of the service</label>
@@ -127,7 +127,7 @@ function AddService() {
                 </container>
                 <br/>
                 <container className="FormGroup">
-                    <h4>ADDRESS</h4>
+                    <h5>ADDRESS</h5>
 
                     <div>
                         <label>Street</label>
@@ -151,7 +151,7 @@ function AddService() {
                 </container>
 
                 <container className="FormGroup">
-                    <h4>CONTACTS</h4>
+                    <h5>CONTACTS</h5>
                     <div>
                         <label>Website</label>
                         <input type="text" name="website"  onChange={(e) => handleWebsite(e)}/>

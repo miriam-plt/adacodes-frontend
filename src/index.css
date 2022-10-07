@@ -127,9 +127,16 @@ a {
 }
 
 .AuthButton {
-  height: 35px;
+  height: 40px;
   margin-top: 30px;
   width: 254px;
+  border: 3px solid #ED8515;
+  font-weight: 600;
+  color: white;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: #ED8515;;
 }
 
 .AuthPlaceholderImg {
@@ -155,13 +162,32 @@ a {
 
 }
 
-.SaveBtn,
+.SaveBtn {
+  width: 284px; 
+  margin: 2px 0 2px 0;
+  height: 40px;
+  margin-top: 30px;
+  border: 3px solid #ED8515;
+  font-weight: 600;
+  color: white;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: #ED8515;
+}
+
 .CancelBtn {
-  height: 35px;
   width: 284px;
-  margin: 8px 0 8px 0;
-  font-size: 0.9em;
-  font-weight: 500;
+  margin: 2px 0 2px 0;
+  height: 40px;
+  margin-top: 10px;
+  border: 3px solid #ED8515;
+  font-weight: 600;
+  color: #ED8515;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: white;  
 }
 
 .DeleteBtn {
@@ -214,6 +240,7 @@ a {
 
 
 
+
 .AuthenticationContent {
   width: 100%;
   display: flex;
@@ -244,26 +271,107 @@ a {
   flex-direction: column;
 }
 
-.ServiceCard {
+.serviceCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
+  background-color: white;
+  color: black;
+  width: 500px;
+  border-radius: 3px;
 }
 
-.ServiceCard p {
-  text-align: left;
+.serviceCard p {
+  text-align: center;
   width: 45vw;
   margin-top: 0;
 }
 
-.ServiceCard h2 {
+.serviceCard h2 {
   margin-bottom: 0;
 }
 
-.ServiceCard a {
+.serviceCard a {
   font-size: 0.8em;
   display: flex;
   align-items: flex-end;
   margin-bottom: 30px;
+}
+
+.serviceCardWrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.crossedTxt {
+  text-decoration: line-through;
+  margin-left: 0;
+  margin-right: 0;
+  width: fit-content !important;
+}
+.header h5 {
+  margin-left: 0;
+  margin-right: 0;
+  width: fit-content !important;
+}
+.bannerDescription {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+ .ServiceListPage {
+  color:#ffffff;
+  background-color: rgb(39, 38, 38);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ServiceDetails h1 {
+  margin-bottom: 3px;
+}
+
+.GroupedInfo p {
+  margin: 2px;
+}
+
+.linkBack {
+  font-size: 0.8em;
+}
+
+.thankYou {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.emoji {
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+.thankYou h1, h4 {
+  width: 500px;
+}
+
+.thankYou a {
+  font-size: 0.8em;
+}
+
+.thankYou button {
+  border: 3px solid #ED8515;
+  font-weight: 600;
+  color: #ED8515;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  height: 40px;
+  width: 200px;
+  background-color: white;
 }
