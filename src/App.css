@@ -115,7 +115,8 @@ button.nav-btn {
   font-family: 'K2D', sans-serif;
   font-size: 100px;
   color: rgb(39, 38, 38); 
-  margin-bottom: 0; 
+  margin-bottom: 0;
+  margin-top: 260px; 
 }
 
 .header h5 {
@@ -125,6 +126,12 @@ button.nav-btn {
   margin-top: 0;
   padding-bottom: 100px;
 }
+
+.hand-down {
+  font-size: 40px;
+  margin: 0;
+}
+
 
 /* HOME */
 /* Buttons */
@@ -357,7 +364,7 @@ button.nav-btn {
     z-index: 10;
     position: absolute;
     align-content: center;
-    bottom: 410px;
+    bottom: 480px;
     object-fit: cover;
 }
 

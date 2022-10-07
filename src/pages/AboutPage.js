@@ -1,16 +1,11 @@
 import Navbar from "../components/Navbar";
 
-function AboutPage() {
-    return (
-      <div>
-        <Navbar />
-        <h1>About</h1>
-        <h5>We've got a simple mission: to eliminate inequalities and discrimination in the tech field. We find and curate the best opportunities for you, so you have the chance to focus on your personal and professional development.</h5>
 
 
 function AboutPage() {
     return (
       <div className="about-page">
+      <Navbar />
         <h1 className="about-title">About us</h1>
         <h5 className="mission">We've got a simple mission: to eliminate inequalities and discrimination in the tech field. We find and curate the best opportunities for you, so you have the chance to focus on your personal and professional development.</h5>
         

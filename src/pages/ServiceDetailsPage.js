@@ -66,11 +66,7 @@ function ServiceDetails () {
         {service && (
           <>
 
-          {service.imageUrl &&(
-            <>
-            <img src={service.imageUrl} alt="service" width="400px"></img>
-            </>
-          )}
+         
             <div className="ServiceContent">
               <h1>{service.name}</h1>
               <Link className="linkBack" to="/service/list">
