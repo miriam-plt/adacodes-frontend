@@ -45,15 +45,15 @@ function Navbar() {
       <div className="navbar auth">
         {!isLoggedIn && (
           <div className="navbar login">
-            <Link to="/login" className="nav nav-btn"> Login </Link>
-            <Link to="/signup"> <button className="nav-btn">Sign Up</button> </Link>  
+            <Link to="/login" className="nav nav-btn btn"> Login </Link>
+            <Link to="/signup"> <button className="nav-btn btn">Sign Up</button> </Link>  
           </div>
         )}
 
         {isLoggedIn && (
           <div className="navbar login">
             <span className="nav greetings">{`Hello ${user && user.username}!`}</span>
-            <button className="nav nav-btn" onClick={logOutUser}>Logout</button>
+            <button className="nav btn nav-btn" onClick={logOutUser}>Logout</button>
           </div>
         )}
         </div>

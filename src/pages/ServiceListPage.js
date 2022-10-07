@@ -52,15 +52,15 @@ function ServiceListPage() {
       <div className="ServiceListPage">
         
         <div>            
-            <button className="map-btn allServices-btn" value="all" onClick={handleChange} >All Services</button>
-            <button className="map-btn events-btn" value="events" onClick={handleChange} >Events</button>
-            <button className="map-btn groups-btn" value="groups" onClick={handleChange} >Groups</button>
-            <button className="map-btn learning-btn" value="learning" onClick={handleChange} >Learning</button>
-            <button className="map-btn support-btn" value="support" onClick={handleChange}>Support</button>
-            <button className="map-btn jobs-btn" value="jobs" onClick={handleChange} >Jobs</button>
-            <button className="map-btn others-btn" value="others" onClick={handleChange}>Others</button>
+            <button className="map-btn list-btn allServices-btn" value="all" onClick={handleChange} >All Services</button>
+            <button className="map-btn list-btn events-btn" value="events" onClick={handleChange} >Events</button>
+            <button className="map-btn list-btn groups-btn" value="groups" onClick={handleChange} >Groups</button>
+            <button className="map-btn list-btn learning-btn" value="learning" onClick={handleChange} >Learning</button>
+            <button className="map-btn list-btn support-btn" value="support" onClick={handleChange}>Support</button>
+            <button className="map-btn list-btn jobs-btn" value="jobs" onClick={handleChange} >Jobs</button>
+            <button className="map-btn list-btn others-btn" value="others" onClick={handleChange}>Others</button>
             {user?.isAdmin && (
-              <button className="map-btn pending-btn" value="pending" onClick={handleChange}>Pending</button>
+              <button className="map-btn list-btn pending-btn" value="pending" onClick={handleChange}>Pending</button>
             )}
             
             <Link to="/">View map</Link>

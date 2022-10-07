@@ -19,8 +19,6 @@ a {
 .selected {
   text-shadow: 1px 0px 3px white;
   color: black;
-  background-color: antiquewhite;
-  border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
   padding-bottom: 5px;
 }
 
@@ -131,6 +129,7 @@ a {
   .BackgroundImg {
     width: 60vw;
     height: 100vh;
+    object-fit: cover;
   }
 
  
