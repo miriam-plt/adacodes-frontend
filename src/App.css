@@ -22,7 +22,7 @@ body {
   height: 72px;
   z-index: 100;
   width: 100vw;
-  position: absolute;
+  position: sticky;
 }
 
 
@@ -238,7 +238,12 @@ button.nav-btn {
 }
 
 .list-btn {
-  margin-top: 150px;
+  margin-top: 80px;
+}
+
+.view {
+  color:#555;
+  margin-left: 20px;
 }
 
 .btn:hover {
@@ -364,7 +369,7 @@ button.nav-btn {
     z-index: 10;
     position: absolute;
     align-content: center;
-    bottom: 480px;
+    bottom: 400px;
     object-fit: cover;
 }
 
