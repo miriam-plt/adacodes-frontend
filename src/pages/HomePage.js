@@ -6,19 +6,21 @@ function HomePage() {
   return (
     <div>
       <div className="header">
-        <h1 className="title">Ada Codes</h1>
-        <h5>Essential resources to help you focus on your personal and professional development in the tech sector. For a digital world without discrimination.</h5>
+        <h1 className="title">adacodes</h1>
+        <h5>Essential resources to help you focus on your personal and professional development in the tech sector. For a <del>digital</del> world without discrimination.</h5>
       </div>
       
-      <MapView />
+      <MapView id="mapview"/>
       <div className="submit">
       <section className="container-submit">
         <div>
-          <h2>Do you have a suggestion?</h2>
-          <h5>Share your suggestion and help the community</h5>
+          <h2 className="send-suggestion">Do you have a suggestion?</h2>
+          <h5 className="share-suggestion">Share your suggestion and help the community</h5>
         </div>
         <div>
-          <button className="submit-btn btn">Send suggestion</button>
+          <form action="/service/add">
+          <input type="submit" className="submit-btn btn" value="Send suggestion" />
+          </form>
         </div>
       </section>
       </div>

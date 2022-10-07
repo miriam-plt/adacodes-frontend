@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
-import background from "../images/background.jpg";
+import background3 from "../images/background3.jpg";
 
 
 function Login() {
@@ -39,7 +39,7 @@ function Login() {
 
     return (
       <div className="AuthContent">
-        <img className="BackgroundImg" src={background} alt="background"/>
+        <img className="BackgroundImg" src={background3} alt="background"/>
         
         <form className="AuthForm" onSubmit={handleLoginSubmit}>
             <h1>Login</h1>

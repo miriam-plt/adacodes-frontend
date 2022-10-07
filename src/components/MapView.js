@@ -8,6 +8,7 @@ import axios from "axios";
 const MapView = () => {
     const [selectedService, setSelectedService] = useState(null);
     const [services, setServices] = useState([]); 
+    
     const [selectQuery, setSelectQuery] = useState("");
    
     const getAllServices = () => { 
@@ -45,7 +46,10 @@ const MapView = () => {
     <div className="Map">
         <div>            
 
-          <button className="map-btn allServices-btn" value="all" onClick={handleChange} >All Services</button>
+        <h1 className='map-services'>Services</h1>
+        <h5 className='map-services map-description'>Browse the map to discover the most useful services to help you on your journey.</h5>
+        
+          <button className="map-btn allServices-btn" value="all" onClick={handleChange} >All services</button>
           <button className="map-btn events-btn" value="events" onClick={handleChange} >Events</button>
           <button className="map-btn groups-btn" value="groups" onClick={handleChange} >Groups</button>
           <button className="map-btn learning-btn" value="learning" onClick={handleChange} >Learning</button>
