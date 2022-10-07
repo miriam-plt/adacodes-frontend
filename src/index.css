@@ -316,7 +316,6 @@ a {
 }
  .ServiceListPage {
   color:#ffffff;
-  background-color: rgb(231, 228, 228);
   display: flex;
   flex-direction: column;
   align-items: center;
