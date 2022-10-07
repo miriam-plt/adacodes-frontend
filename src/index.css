@@ -44,11 +44,11 @@ a {
   border-radius: 4px;
   }
 
-  .ServiceDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.ServiceDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
   .MapWrapper {
     display: flex;
@@ -57,79 +57,312 @@ a {
   }
 
 
-  .ServiceContent {
-    max-width: 60vw;
-    margin-top: 80px;
-  }
+.ServiceContent {
+  max-width: 60vw;
+  margin-top: 80px;
+}
 
-  .ActionButtons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 200px;
-  }
+.ActionButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 200px;
+}
 
-  .AuthContent {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
+.AuthContent {
+  width: 100%;
+  display: flex;
+}
 
-  .AuthForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
+.ServiceForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .CallToAction {
-    font-size: 0.9em;
-    margin-top: 2em;
-  }
+.ServiceForm .SaveBtn {
+  margin-top: 30px;
+}
 
-  .InputField {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 250px;
-    margin-bottom: 20px;
-  }
+.CallToAction {
+  font-size: 0.9em;
+  margin-top: 2em;
+}
 
-  .InputTitle {
-    font-size: 0.8em;
-    font-weight: 500;
-    margin: 3px 0 3px 0;
-  }
+.FormGroup div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
 
-  .InputAuth {
-    height: 26px;
-    width: 250px;
-    padding: 0;
-  }
+.FormGroup label {
+  font-size: 0.7em;
+  font-weight: 600;
+  margin: 3px 0 3px 0;
+}
 
-  .AuthErrorMsg {
-    font-size: 0.8em;
-    color: rgb(251, 71, 68);
-    margin: 0;
-  }
+.InputAuth {
+  height: 26px;
+  width: 250px;
+  padding: 0;
+}
 
-  .AuthButton {
-    height: 35px;
-    margin-top: 20px;
-    width: 250px;
-  }
+.AuthErrorMsg {
+  font-size: 0.7em;
+  color: rgb(251, 71, 68);
+  margin: 5px 0 -20px 0;
+}
 
-  .AuthPlaceholderImg {
-    background-color: cadetblue;
-    height: 100px;
-    width: 70px;
-  }
+.AuthButton {
+  height: 40px;
+  margin-top: 30px;
+  width: 254px;
+  border: 3px solid #ED8515;
+  font-weight: 600;
+  color: white;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: #ED8515;;
+}
 
-  .BackgroundImg {
-    width: 60vw;
-    height: 100vh;
-    object-fit: cover;
-  }
+.AuthPlaceholderImg {
+  background-color: cadetblue;
+  height: 100px;
+  width: 70px;
+}
 
- 
+.BackgroundImg {
+  width: 60vw;
+  height: 100vh;
+}
+
+.dropdown {
+  height: 26px;
+  width: 284px;
+  margin-bottom: 25px;
+}
+
+.DescriptionInput {
+  height: 200px;
+  width: 278px;
+
+}
+
+.SaveBtn {
+  width: 284px; 
+  margin: 2px 0 2px 0;
+  height: 40px;
+  margin-top: 30px;
+  border: 3px solid #ED8515;
+  font-weight: 600;
+  color: white;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: #ED8515;
+}
+
+.CancelBtn {
+  width: 284px;
+  margin: 2px 0 2px 0;
+  height: 40px;
+  margin-top: 10px;
+  border: 3px solid #ED8515;
+  font-weight: 600;
+  color: #ED8515;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: white;  
+}
+
+.DeleteBtn {
+  background-color: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 10px 0 50px 0px;
+}
+
+.FormGroup {
+  width: 284px;
+  align-content: center;
+}
+
+.FormGroup input {
+  height: 26px;
+  width: 280px;
+  padding: 0;
+}
+
+.ImgUpload {
+  background-color: rgb(232, 232, 232);
+  width: 274px !important;
+  text-align: left;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-radius: 3px;
+  margin-top: 25px !important;
+  height: 55px;
+}
+
+
+.ImgUpload input {
+  margin-top: 10px !important;
+}
+
+.ServiceForm label {
+  font-size: 0.7em;
+  font-weight: 600;
+  margin: 3px 0 3px 0;
+}
+
+.ServiceForm div {
+  text-align: left;
+  margin: 5px 0 5px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+.AuthenticationContent {
+  width: 100%;
+  display: flex;
+}
+
+.Authentication {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.Authentication .SaveBtn {
+  margin-top: 30px;
+}
+
+.Authentication label {
+  font-size: 0.7em;
+  font-weight: 600;
+  margin: 3px 0 3px 0;
+}
+
+.Authentication div {
+  text-align: left;
+  margin: 5px 0 5px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: white;
+  color: black;
+  width: 500px;
+  border-radius: 3px;
+}
+
+.serviceCard p {
+  text-align: center;
+  width: 45vw;
+  margin-top: 0;
+}
+
+.serviceCard h2 {
+  margin-bottom: 0;
+}
+
+.serviceCard a {
+  font-size: 0.8em;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.serviceCardWrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.crossedTxt {
+  text-decoration: line-through;
+  margin-left: 0;
+  margin-right: 0;
+  width: fit-content !important;
+}
+.header h5 {
+  margin-left: 0;
+  margin-right: 0;
+  width: fit-content !important;
+}
+.bannerDescription {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+ .ServiceListPage {
+  color:#ffffff;
+  background-color: rgb(39, 38, 38);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ServiceDetails h1 {
+  margin-bottom: 3px;
+}
+
+.GroupedInfo p {
+  margin: 2px;
+}
+
+.linkBack {
+  font-size: 0.8em;
+}
+
+.thankYou {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.emoji {
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+.thankYou h1, h4 {
+  width: 500px;
+}
+
+.thankYou a {
+  font-size: 0.8em;
+}
+
+.thankYou button {
+  border: 3px solid #ED8515;
+  font-weight: 600;
+  color: #ED8515;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  height: 40px;
+  width: 200px;
+  background-color: white;
+}

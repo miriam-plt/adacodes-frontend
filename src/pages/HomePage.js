@@ -1,16 +1,28 @@
 import MapView from "../components/MapView";
-
+import Navbar from "../components/Navbar";
+import { HashLink } from 'react-router-hash-link';
 
 function HomePage() {
   
   return (
     <div>
+      <Navbar />
       <div className="header">
         <h1 className="title">adacodes</h1>
+
         <h5>Essential resources to help you focus on your personal and professional development in the tech sector. For a <del>digital</del> world without discrimination.</h5>
+        <HashLink smooth to="#map">
+          View Map
+        </HashLink>
+
       </div>
+
       
-      <MapView id="mapview"/>
+
+      <div id="map">
+        <MapView />
+      </div>
+
       <div className="submit">
       <section className="container-submit">
         <div>

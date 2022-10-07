@@ -13,7 +13,7 @@ console.log(props)
             zoom: 10
             }}
             style={{width: '100vw', height: '40vh'}}
-            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapStyle="mapbox://styles/mapbox/light-v10"
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         >
             <FullscreenControl />
@@ -22,7 +22,7 @@ console.log(props)
             <Marker 
                 longitude={props.longitude}
                 latitude={props.latitude}  
-                >
+            >
 
             </Marker>
        

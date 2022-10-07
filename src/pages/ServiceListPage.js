@@ -3,6 +3,7 @@ import axios from "axios";
 import ServiceCard from "../components/ServiceCard";
 import { AuthContext } from "../context/auth.context";
 import { Link } from 'react-router-dom';
+import Navbar from "../components/Navbar";
 
 
 function ServiceListPage() {
@@ -50,7 +51,9 @@ function ServiceListPage() {
     
     return ( 
       <div className="ServiceListPage">
-        
+
+        <Navbar />
+
         <div>            
             <button className="map-btn list-btn allServices-btn" value="all" onClick={handleChange} >All Services</button>
             <button className="map-btn list-btn events-btn" value="events" onClick={handleChange} >Events</button>
@@ -70,7 +73,9 @@ function ServiceListPage() {
 
           {filteredServices.map((service) => {
                 return (
-              <ServiceCard key={service._id} _id={service._id} name={service.name} description={service.description} />
+              <div className="ServiceCardWrapper">
+                <ServiceCard key={service._id} _id={service._id} name={service.name} description={service.description} />
+              </div>
             )}
           )}     
          

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function EditService() {
   const [name, setName] = useState("");
@@ -22,7 +23,6 @@ function EditService() {
 
   const navigate = useNavigate();
   const { serviceId } = useParams();
-  console.log(serviceId)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +39,6 @@ function EditService() {
           navigate(`/service/${serviceId}`)
          });
   }
-
 
   const deleteService = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -86,58 +85,121 @@ function EditService() {
 
     return (
       <div className="editService">
-        <h1>Edit the submission:</h1>
-        <form onSubmit={handleSubmit}>
-                <label>Name:*</label>
-                <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
-                <label>Category:*</label>
-                <select name="category" value={category} onChange={(e) => setCategory(e.target.value)}>
-                    <option defaultValue="events"  hidden>Select a category</option>
-                    <option value="events">Events</option>
-                    <option value="groups">Groups</option>
-                    <option value="jobs">Jobs</option>
-                    <option value="learning">Learning</option>
-                    <option value="support">Support</option>
-                    <option value="others">Others</option>
-                </select>
-                <label>Street:</label>
-                <input type="text" name="street" value={street}  onChange={(e) => setStreet(e.target.value)}/>
-                <label>Street Nr:</label>
-                <input type="text" name="streetNr" value={streetNr} onChange={(e) => setStreetNr(e.target.value)}/>
-                <label>Address complement:</label>
-                <input type="text" name="complement" value={complement} onChange={(e) => setComplement(e.target.value)}/>
-                <label>Zip:</label>
-                <input type="text" name="zip" value={zip} onChange={(e) => setZip(e.target.value)}/>
+        <Navbar />
+        <h1>Edit Service</h1>
+        <p>*Marked fields are mandatory</p>
+        <form className="ServiceForm" onSubmit={handleSubmit}>
 
-                <label>Please indicate here the latitude:</label>
-                <input type="text" name="latitude" value={latitude} onChange={(e) => setLatitude(e.target.value)}/>
-                <label>Please indicate here the longitute:</label>
-                <input type="text" name="longitude" value={longitude} onChange={(e) => setLongitude(e.target.value)}/>
+          <container className="FormGroup">
+            <h5>GENERAL INFO</h5>
 
-                <label>Website:</label>
-                <input type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)}/>
-                <label>E-mail address:</label>
-                <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <label>Phone:</label>
-                <input type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
-                <label>Description:*</label>
-                <input type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
-                <label>Select an image url:</label>
-                <input type="text" name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
+            <div className="InputField">
+              <label>*Name of the service</label>
+              <input className="Input" type="text" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
+            </div>
+
+            <div className="InputField">
+              <label>*Category</label>
+              <select className="dropdown" name="category" value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option defaultValue="events" hidden>Select a category</option>
+                <option value="events">Events</option>
+                <option value="groups">Groups</option>
+                <option value="jobs">Jobs</option>
+                <option value="learning">Learning</option>
+                <option value="support">Support</option>
+                <option value="others">Others</option>
+              </select>
 
               {category.includes("event") && (
                 <>
-                  <label>In case you're submitting an event please indicate the date:</label>
-                  <input type="text" name="date" value={date} onChange={(e) => setDate(e.target.value)}/>
-                  <label>In case you're submitting an event please indicate the time:</label>
-                  <input type="text" name="time" value={time} onChange={(e) => setTime(e.target.value)}/>
+                  <div className="InputField">
+                    <label>Please indicate the date of the event</label>
+                    <input className="Input" type="text" name="date" value={date} onChange={(e) => setDate(e.target.value)}/>
+                  </div>
+                  <div className="InputField">
+                    <label>What time is the event taking place?</label>
+                    <input className="Input" type="text" name="time" value={time} onChange={(e) => setTime(e.target.value)}/>
+                  </div>
                 </>
               )}
-                                
-                <button type="submit">Save changes</button>
-            </form>
-            <p>All fields marked with an asterisk are mandatory.</p>
-            <button onClick={deleteService}>Delete</button>
+
+              <div className="InputField">
+                <label>*Description</label>
+                <textarea className="DescriptionInput" type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+              </div> 
+
+              <div className="InputField">
+                <label>Image (inform URL)</label>
+                <input className="Input" type="text" name="imageUrl" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>
+              </div>
+
+              
+            </div>
+          </container>     
+          
+          <container className="FormGroup">
+            <h5>ADDRESS</h5>
+            <container className="Address">
+              <div className="InputField">
+                <label>Street</label>
+                <input className="Input" type="text" name="street" value={street}  onChange={(e) => setStreet(e.target.value)}/>
+              </div>
+
+              <div className="InputField">
+                <label className="InputTitle StreetNr">Number</label>
+                <input className="Input" type="text" name="streetNr" value={streetNr} onChange={(e) => setStreetNr(e.target.value)}/>
+              </div>
+            </container>  
+              
+
+              <div className="InputField">
+                <label>Zip code</label>
+                <input className="Input" type="text" name="zip" value={zip} onChange={(e) => setZip(e.target.value)}/>
+              </div>
+
+              <div className="InputField">
+                <label>Complement</label>
+                <input className="Input" type="text" name="complement" value={complement} onChange={(e) => setComplement(e.target.value)}/>
+              </div>
+
+              <div className="InputField">
+                <label>*Latitude</label>
+                <input className="Input" type="text" name="latitude" value={latitude} onChange={(e) => setLatitude(e.target.value)}/>
+             </div>
+
+              <div className="InputField">
+                <label>*Longitute</label>
+                <input className="Input" type="text" name="longitude" value={longitude} onChange={(e) => setLongitude(e.target.value)}/>
+              </div>
+            
+          </container> 
+          <br/>
+          <container className="FormGroup">
+            <h5>CONTACTS</h5>
+            <div className="InputField">
+              <label>Website</label>
+              <input className="Input" type="text" name="website" value={website} onChange={(e) => setWebsite(e.target.value)}/>
+            </div>
+
+          <div className="InputField">
+            <label>E-mail</label>
+            <input className="Input" type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          </div>
+
+          <div className="InputField">
+            <label>Phone</label>
+            <input className="Input" type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+          </div>
+        </container>
+                             
+          <button className="SaveBtn" type="submit">Save</button>
+          <Link to="/service/list">
+            <button className="CancelBtn" type="submit">Cancel</button> 
+          </Link>
+            
+        </form>
+           
+        <button className="DeleteBtn" onClick={deleteService}>Delete Service</button>
       
       </div>
     );

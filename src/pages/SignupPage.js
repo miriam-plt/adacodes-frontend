@@ -30,14 +30,16 @@ function Signup() {
     };
 
     return (
+
       <div className="AuthContent">
         <img className="BackgroundImg" src={background2} alt="background"/>
+
         
-        <form className="AuthForm" onSubmit={handleLoginSubmit}>
-            <h1>Please inform your credentials</h1>
+        <form className="Authentication" onSubmit={handleLoginSubmit}>
+            <h1>Create an account</h1>
             
-            <div className="InputField">
-              <label className="InputTitle">Full name</label>
+            <div>
+              <label>Full name</label>
               <input
               className="InputAuth"
               type="text"
@@ -47,8 +49,8 @@ function Signup() {
               />
             </div>
             
-            <div className="InputField">
-              <label className="InputTitle">Email</label>
+            <div>
+              <label>Email</label>
               <input
               className="InputAuth"
               type="email"
@@ -58,8 +60,8 @@ function Signup() {
               />
             </div>
             
-            <div className="InputField">
-              <label className="InputTitle">Password</label>
+            <div>
+              <label>Password</label>
               <input
               className="InputAuth"
               type="password"

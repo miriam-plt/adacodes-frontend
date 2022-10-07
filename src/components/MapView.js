@@ -37,6 +37,8 @@ const MapView = () => {
         else {return services.isApproved === true}
     })
 
+    
+
     if(services.length === 0){ 
     return <p>Loading...</p>
     }
@@ -72,6 +74,7 @@ const MapView = () => {
             <FullscreenControl />
             <NavigationControl />  
 
+           
             {filteredServices.map(service => (
                 <Marker 
                     // color={chooseColor(service.category)}
@@ -119,7 +122,7 @@ const MapView = () => {
 
                         {selectedService.website !== "" && (
                             <ExternalLink href={`${selectedService.website}`}>
-                                <span>{`${selectedService.website}`}</span>
+                                <p><span>{`${selectedService.website}`}</span></p>
                             </ExternalLink>
                         )}
                         {selectedService.email !== "" && (

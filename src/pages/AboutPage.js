@@ -1,3 +1,12 @@
+import Navbar from "../components/Navbar";
+
+function AboutPage() {
+    return (
+      <div>
+        <Navbar />
+        <h1>About</h1>
+        <h5>We've got a simple mission: to eliminate inequalities and discrimination in the tech field. We find and curate the best opportunities for you, so you have the chance to focus on your personal and professional development.</h5>
+
 
 function AboutPage() {
     return (
@@ -22,6 +31,7 @@ function AboutPage() {
           <img className="about-pic" src="https://64.media.tumblr.com/2ac0a963a21ddfaacbb30210f336522e/1c254e4721b2abb1-c8/s1280x1920/0b8bcd6bdf8ef05009f660bfc1bf1b38fda87013.jpg" alt="first-programmer" width="400px" />
         </div>
         </div>
+
 
       </div>
     );
