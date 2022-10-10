@@ -20,3 +20,9 @@ Adacodes is a platform for sharing resources, providing the tools to expand know
 - Backend: Express and Node.js
 - Database: MongoDB
 - Deployed on Cyclic and Netlify
+
+
+# Contributors
+
+- [Camila Yokoo](<https://github.com/kyotosng> "Camila")
+- [Miriam Poletti](<https://github.com/miriam-plt> "Miriam")
